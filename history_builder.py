@@ -8,6 +8,7 @@ import re
 import xml.etree.ElementTree as ET
 from pathlib import Path
 import json
+import git
 
 # The AODP binary file dumps must be available for extraction.
 # If the AODP dumps are not at the parent directory level, modify the `parseDir` variable below.
@@ -19,6 +20,10 @@ MOBSXMLFILE = "mobs.xml"
 LOCALIZATIONXMLFILE = "localization.xml"
 currentDir = Path(__file__).parent
 parseDir = currentDir.parent / AODPBINDUMPSDIRNAME
+
+# Use GitPython to reference specific commits associated with each release.
+# See `AORELEASES` below for the complete list.
+repo = git.Repo(parseDir)
 
 # This file will be overwritten each time this script runs.
 HISTORYFILE = "albionjournal-history.json"
@@ -64,6 +69,9 @@ AORELEASES = {
     ],
     "44e15edf86a20b055981ae962c968e358690424a": [
         "hotfix", "Rogue Frontier Hotfix #1", "February 5, 2025"
+    ],
+    "c9c9cac6c33de8a5e364354214cfa5ea37e2cd8a": [
+        "patch", "Rogue Frontier Patch #1", "February 12, 2025"
     ]
 }
 
@@ -152,9 +160,13 @@ showRequirements = {
     }
 }
 
+# Limit the number of releases until testing is complete
 AORELEASES = {
     "44e15edf86a20b055981ae962c968e358690424a": [
         "hotfix", "Rogue Frontier Hotfix #1", "February 5, 2025"
+    ],
+    "c9c9cac6c33de8a5e364354214cfa5ea37e2cd8a": [
+        "patch", "Rogue Frontier Patch #1", "February 12, 2025"
     ]
 }
 journalHistory = {}
@@ -166,10 +178,8 @@ for relTag, relData in AORELEASES.items():
     print(f"Albion Online {relData[0]} - {relData[1]}")
     print(f"    first available on {relData[2]}")
 
-    # TBD: Use GitPython to checkout the commit hash associated with the release
-    # import git
-    # repo = git.Repo(parseDir)
-    # repo.git.checkout(relTag)
+    # Checkout the commit hash associated with the release.
+    repo.git.checkout(relTag)
 
     jtree = ET.parse(parseDir / JOURNALXMLFILE)
     jroot = jtree.getroot()
@@ -389,6 +399,10 @@ for relTag, relData in AORELEASES.items():
                 journalHistory[relTag][3][categoryID][1][subcategoryID][1][achievementID] = [
                     achievementName, rewardID, reward, requirementsList]
 
+# Reset the repository to track the main branch.
+repo.git.checkout("master")
+
+# Write all the history data to the reference file.
 try:
     with open(HISTORYFILE, "w", encoding="utf-8") as f:
         json.dump(journalHistory, f, indent=4, ensure_ascii=False)
