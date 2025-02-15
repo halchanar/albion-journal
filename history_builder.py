@@ -9,6 +9,7 @@ import tomllib
 import re
 import xml.etree.ElementTree as ET
 from pathlib import Path
+from datetime import datetime
 import json
 import yaml
 import git
@@ -54,6 +55,7 @@ print(f"Only create current file: {options['only_current']}")
 # or clone it from the URL. If the AODP dumps are not at the parent directory level, modify the
 # `parse_dir` variable below.
 extract_source = config["extract_source"]
+current_file = options["current_file"]
 history_file = options["history_file"]
 current_dir = Path(__file__).parent
 parse_dir = current_dir.parent / extract_source["repo_dir"]
@@ -100,13 +102,23 @@ journalHistory = {
     }
 }
 """
-ao_releases = config["ao_releases_test"]
+ao_releases = config["ao_releases"]
 show_requirements = config["show_requirements"]
 
-for relTag, relData in ao_releases.items():
-    if options["force_rebuild"] is False:
-        break
+# The `only_current` setting provides an efficient option.
+# If enabled, reduce `ao_releases` to only the most recent.
+if options["only_current"] is True:
+    current_release_value = max(ao_releases.values(),
+                                key=lambda x: datetime.fromisoformat(x["date"]))
+    current_release_key = next(
+        key for key, value in ao_releases.items() if value == current_release_value)
+    ao_releases = {current_release_key: current_release_value}
+# If disabled or missing, set expectation of extensive processing time.
+else:
+    print("NOTE: Processing ALL the Journal data (every release, patch, and minor correction)" +
+          "will take a while .")
 
+for relTag, relData in ao_releases.items():
     relData["categories"] = {}
     journalHistory[relTag] = relData
     print(f"Processing data for {relTag}...")
@@ -346,10 +358,38 @@ for relTag, relData in ao_releases.items():
 # Reset the repository to track the main branch.
 extract_repo.git.checkout(extract_source["repo_branch"])
 
-# Write all the history data to the reference file.
-try:
-    with open(history_file, "w", encoding="utf-8") as f:
-        json.dump(journalHistory, f, indent=4, ensure_ascii=False)
-except IOError:
-    print(
-        f"An error occurred while writing the {history_file} file.")
+# Write data from the latest release to the appropriate reference file.
+if options["only_current"] is True:
+    try:
+        with open(current_file, "w", encoding="utf-8") as f:
+            json.dump(journalHistory, f, indent=4, ensure_ascii=False)
+    except IOError:
+        print(f"An error occurred while writing the {current_file} file.")
+        sys.exit(1)
+    finally:
+        f.close()
+else:
+    # Select the most recent if `journalHistory` has data from every release.
+    current_release_value = max(journalHistory.values(),
+                                key=lambda x: datetime.fromisoformat(x["date"]))
+    current_release_key = next(
+        key for key, value in journalHistory.items() if value == current_release_value)
+    journalCurrent = {current_release_key: current_release_value}
+    # Write data from the latest release to the appropriate reference file.
+    try:
+        with open(current_file, "w", encoding="utf-8") as f:
+            json.dump(journalCurrent, f, indent=4, ensure_ascii=False)
+    except IOError:
+        print(f"An error occurred while writing the {current_file} file.")
+        sys.exit(1)
+    finally:
+        f.close()
+    # Write data from every release to the appropriate reference file.
+    try:
+        with open(history_file, "w", encoding="utf-8") as f:
+            json.dump(journalHistory, f, indent=4, ensure_ascii=False)
+    except IOError:
+        print(f"An error occurred while writing the {history_file} file.")
+        sys.exit(1)
+    finally:
+        f.close()
