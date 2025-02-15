@@ -6,7 +6,7 @@ logging:
 
 options:
   only_current: true # Don't build history file if `true`
-  force_rebuild: true # Overwrite history file if `true`
+  force_rebuild: true # Overwrite history file if `true`; WARNING: lengthy operation
   current_file: journal_extract-current.json
   history_file: journal_extract-all.json
 
