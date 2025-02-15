@@ -3,7 +3,8 @@ name = "journal_xtractor.py"
 version = "0.5.0-beta"
 description = "AOGrind Journal Extractor - Extract achievements, rewards, and other details for the Guide on AO Grind"
 readme = "README.md"
-requires-python = ">=3.9"
+requires-python = ">=3.11"
 dependencies = [
     "gitpython>=3.1.44",
+    "pyyaml>=6.0.2",
 ]

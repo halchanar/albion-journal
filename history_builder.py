@@ -4,193 +4,115 @@ Parse data files from the Albion Online Data Project (AODP) to extract achieveme
 the Albion Journal. Store history of changes for later reference.
 """
 
+import tomllib
 import re
 import xml.etree.ElementTree as ET
 from pathlib import Path
 import json
+import yaml
 import git
 
+# Load project settings
+try:
+    with open("pyproject.toml", "rb") as f:
+        pyproject_data = tomllib.load(f)
+except FileNotFoundError:
+    print("pyproject.toml not found")
+except tomllib.TOMLDecodeError:
+    print("Error parsing pyproject.toml")
+
+project_name = pyproject_data["project"]["name"]
+project_version = pyproject_data["project"]["version"]
+
+# Load configuration settings
+CONFIGFILE = "config_xtractor.yaml"
+try:
+    with open(CONFIGFILE, "r", encoding="ascii") as f:
+        config = yaml.safe_load(f)
+except yaml.YAMLError as e:
+    print(f"Error reading YAML file: {e}")
+except FileNotFoundError:
+    print("Configuration file not found")
+
+log_level = config["logging"]["level"]
+options = config["options"]
+
+# Display configuration settings
+print(f"Running {project_name} version {project_version}")
+print(f"Logging level: {log_level}")
+print(f"Force rebuild: {options['force_rebuild']}")
+
 # The AODP binary file dumps must be available for extraction.
-# If the AODP dumps are not at the parent directory level, modify the `parseDir` variable below.
-# https://github.com/ao-data/ao-bin-dumps
-AODPBINDUMPSDIRNAME = "ao-bin-dumps"
-JOURNALXMLFILE = "albionjournal.xml"
-ITEMSXMLFILE = "items.xml"
-MOBSXMLFILE = "mobs.xml"
-LOCALIZATIONXMLFILE = "localization.xml"
-currentDir = Path(__file__).parent
-parseDir = currentDir.parent / AODPBINDUMPSDIRNAME
+# If the AODP dumps are not at the parent directory level, modify the `parse_dir` variable below.
+extract_source = config["extract_source"]
+history_file = options["history_file"]
+current_dir = Path(__file__).parent
+parse_dir = current_dir.parent / extract_source["dir_name"]
 
-# Use GitPython to reference specific commits associated with each release.
-# See `AORELEASES` below for the complete list.
-repo = git.Repo(parseDir)
-
-# This file will be overwritten each time this script runs.
-HISTORYFILE = "albionjournal-history.json"
-
-# This is the list of Albion Online releases, patches, and hotfixes
-# since the Albion Journal was introduced.
-AORELEASES = {
-    "f1de4b24e81726c8c638d9708310bf2c4d273711": [
-        "release", "Paths to Glory", "July 22, 2024"
-    ],
-    "8c3002ca0a757fe46ee8dcd5514b0be01166ac25": [
-        "patch", "Paths to Glory Patch #1", "August 7, 2024"
-    ],
-    "5d2396c21f64123d6c66b32f55650d8dca8811a1": [
-        "patch", "Paths to Glory Patch #2", "August 21, 2024"
-    ],
-    "ee92a1cd3c07db05d324e3ca8fbb0adcaffddd69": [
-        "patch", "Paths to Glory Patch #3", "September 4, 2024"
-    ],
-    "49fa486b4ea45bdcd35a9f6aabb042d0396324a4": [
-        "patch", "Paths to Glory Patch #4", "September 18, 2024"
-    ],
-    "70aa34b154fb0062289cbbc596dca6256043f245": [
-        "release", "Horizons", "October 28, 2024"
-    ],
-    "160f7f5c087fa0a0118c7a8477e6a17caf22dc78": [
-        "patch", "Horizons Patch #1", "November 6, 2024"
-    ],
-    "a6d1a19cebdb8263f41282a69b62020643b76123": [
-        "patch", "Horizons Patch #2", "November 20, 2024"
-    ],
-    "d2dd1d559d37a75cc25b805b5e93ad415c2916a4": [
-        "patch", "Horizons Patch #3", "November 27, 2024"
-    ],
-    "4c5495c8de5279e776b6f8e31d42b3dbff0072f2": [
-        "patch", "Horizons Patch #4", "December 4, 2024"
-    ],
-    "87bba4cd76217c08c1142db0fe2c5c276640ff2b": [
-        "patch", "Horizons Patch #5", "December 18, 2024"
-    ],
-    "44358f340b61e7640ef0ceae79bead7432352336": [
-        "release", "Rogue Frontier", "February 3, 2025"
-    ],
-    "44e15edf86a20b055981ae962c968e358690424a": [
-        "hotfix", "Rogue Frontier Hotfix #1", "February 5, 2025"
-    ],
-    "c9c9cac6c33de8a5e364354214cfa5ea37e2cd8a": [
-        "patch", "Rogue Frontier Patch #1", "February 12, 2025"
-    ]
-}
+# Use GitPython to switch to the specific commit associated with each release.
+# See `ao_releases` in the configuration file for the complete list.
+repo = git.Repo(parse_dir)
+ao_releases = config["ao_releases_test"]
+show_requirements = config["show_requirements"]
 
 # This is the data structure used to store the history.
 """
 journalHistory = {
-    "Tag1": [
-        "release or patch or hotfix", "Name or Description", "Date", {
-            "Category1": [
-                "Category1 Name", {
-                    "Subcategory1": [
-                        "Subcategory1 Name", {
-                            "Achievement1": [
-                                "Achievement1 Name",
-                                "Achievement1 Reward ID",
-                                "Achievement1 Reward Title", [
+    "Tag1": {
+        "type": "release or patch or hotfix",
+        "name": "Name or Description",
+        "date": "Date",
+        "categories": {
+            "Category1": {
+                "title": "Category1 Title",
+                "subcategories": {
+                    "Subcategory1": {
+                        "title": "Subcategory1 Title",
+                        "achievements": {
+                            "Achievement1": {
+                                "title": "Achievement1 Title",
+                                "reward": {
+                                    "id": "Achievement1 Reward ID",
+                                    "title": "Achievement1 Reward Title"
+                                },
+                                "requirements": [
                                     "Achievement1 Requirement1"
                                 ]
-                            ]
+                            }
                         }
-                    ]
+                    }
                 }
-            ]
-        }
-    ]
-}
-"""
-
-# Define list of achievements to display their requirements (e.g., quest, creature, location)
-# NOTE 1: There are quite a few of these to potentially display, so we're intentionally
-#   choosing a subset of them for aesthetics.
-# NOTE 2: Displaying these introduces significant complexity when parsing the various XML files,
-#   so we must also specify how to handle special cases.
-showRequirements = {
-    "achievement list": [
-        "SA_EXPEDITION_FINISH_ALL",
-        "JOURNAL_PVE_EXPEDITION_FINISH_ALL_HARDCORE",
-        "SA_PVE_TRACKING_HUNT_ALL",
-        "JOURNAL_PVE_TRACKING_KILL_RARE_MOBS_GROUP_7",
-        "JOURNAL_PVE_WORLDBOSS_KILL_T8_WORLDBOSSES_ALL",
-        "JOURNAL_PVE_WORLDBOSS_KILL_WORLDBOSSES_IN_ALL_LOCATIONS",
-        "SA_PVE_KILL_RD_ELITE_01",
-        "JOURNAL_GATHERING_SKINNING_ANIMAL_ALL",
-        "JOURNAL_GATHERING_SKINNING_LOOT_BABY_ALL",
-        "JOURNAL_GATHERING_FISHING_CATCH_ALL",
-        "SA_PVE_KILL_MINIGUARDIANS",
-        "JOURNAL_GATHERING_CRITTERS_CRITTERS_UNIQUE_ALL",
-        "SA_EXPLORATION_CITIES",
-        "JOURNAL_EXPLORATION_CITIES_VISIT_REST_CITY_ALL",
-        "JOURNAL_EXPLORATION_TRAVEL_RIDE_ADC_MOUNT",
-        "JOURNAL_EXPLORATION_TRAVEL_RIDE_FW_ALL",
-        "SA_PVE_MISTS_HUNTER",
-        "JOURNAL_EXPLORATION_SMUGGLERS_VISIT_BLACKBANKS_08",
-        "SA_FACTIONWARFARE_KILLBOSS_ALL"
-    ],
-    "tags to skip": ["alternative"],
-    "include tier": [""],
-    "include count": ["SA_FACTIONWARFARE_KILLBOSS_ALL"],
-    "correct SBI naming mistakes": {
-        "XML tag to match": {
-            "attribute to swap out": [
-                "ID_TO_SWAP_OUT"
-            ],
-            "attribute to swap in": [
-                "ID_TO_SWAP_IN"
-            ]
-        },
-        "item": {
-            "name": [
-                "ID_TO_SWAP_OUT"
-            ],
-            "namelocatag": [
-                "ID_TO_SWAP_IN"
-            ]
-        },
-        "DroppedByMob": {
-            "name": [
-                "T4_MOB_CRITTER_HIDE_COUGAR",
-                "T8_MOB_CRITTER_HIDE_COUGAR"
-            ],
-            "namelocatag": [
-                "@MOB_T4_MOB_CRITTER_HIDE_COUGAR",
-                "@MOB_T8_MOB_CRITTER_HIDE_COUGAR"
-            ]
+            }
         }
     }
 }
+"""
 
-# Limit the number of releases until testing is complete
-AORELEASES = {
-    "44e15edf86a20b055981ae962c968e358690424a": [
-        "hotfix", "Rogue Frontier Hotfix #1", "February 5, 2025"
-    ],
-    "c9c9cac6c33de8a5e364354214cfa5ea37e2cd8a": [
-        "patch", "Rogue Frontier Patch #1", "February 12, 2025"
-    ]
-}
 journalHistory = {}
 
-for relTag, relData in AORELEASES.items():
-    relData.append({})
+for relTag, relData in ao_releases.items():
+    if options["force_rebuild"] is False:
+        break
+
+    relData["categories"] = {}
     journalHistory[relTag] = relData
     print(f"Processing data for {relTag}...")
-    print(f"Albion Online {relData[0]} - {relData[1]}")
-    print(f"    first available on {relData[2]}")
+    print(f"Albion Online {relData['type']} - {relData['name']}")
+    print(f"    first available on {relData['date']}")
 
     # Checkout the commit hash associated with the release.
     repo.git.checkout(relTag)
 
-    jtree = ET.parse(parseDir / JOURNALXMLFILE)
+    jtree = ET.parse(parse_dir / extract_source["journal_xml_file"])
     jroot = jtree.getroot()
 
-    itree = ET.parse(parseDir / ITEMSXMLFILE)
+    itree = ET.parse(parse_dir / extract_source["items_xml_file"])
     iroot = itree.getroot()
 
-    mtree = ET.parse(parseDir / MOBSXMLFILE)
+    mtree = ET.parse(parse_dir / extract_source["mobs_xml_file"])
     mroot = mtree.getroot()
 
-    ltree = ET.parse(parseDir / LOCALIZATIONXMLFILE)
+    ltree = ET.parse(parse_dir / extract_source["localization_xml_file"])
     lroot = ltree.getroot()
 
     for category in jroot.findall(".//category"):
@@ -212,7 +134,8 @@ for relTag, relData in AORELEASES.items():
         categoryName = lroot.find(
             ".//*[@tuid='" + categoryNameID + "']/tuv/seg").text
 
-        journalHistory[relTag][3][categoryID] = [categoryName, {}]
+        journalHistory[relTag]["categories"][categoryID] = {
+            "title": categoryName, "subcategories": {}}
 
         for subcategory in jroot.findall(".//*[@uniquename='" + categoryID + "']/subcategory"):
             # Determine localized subcategory name
@@ -221,8 +144,8 @@ for relTag, relData in AORELEASES.items():
             subcategoryName = lroot.find(
                 ".//*[@tuid='" + subcategoryNameID + "']/tuv/seg").text
 
-            journalHistory[relTag][3][categoryID][1][subcategoryID] = [
-                subcategoryName, {}]
+            journalHistory[relTag]["categories"][categoryID]["subcategories"][subcategoryID] = {
+                "title": subcategoryName, "achievements": {}}
 
             for achievement in jroot.findall(".//*[@uniquename='" + subcategoryID +
                                              "']/achievement"):
@@ -288,29 +211,29 @@ for relTag, relData in AORELEASES.items():
 
                 # Determine requirements for certain achievements
                 requirementsList = []
-                if achievementID in showRequirements["achievement list"]:
+                if achievementID in show_requirements["achievements"]:
                     REQUIREMENTCOUNT = ""
                     for requirement in jroot.findall(".//*[@name='" + achievementID + "']//"):
                         REQUIREMENTID = ""
                         REQUIREMENTTIER = ""
 
                         # Skip any subelements that aren't applicable
-                        if requirement.tag in showRequirements["tags to skip"]:
+                        if requirement.tag in show_requirements["skip_tags"]:
                             continue
 
                         # Handle special cases
                         # CASE 1: There are situations when a `gather` or `killmob` element
                         # includes the requirement, but it's children aren't applicable.
                         if (requirement.tag == "gather" and "DroppedByMob"
-                                not in showRequirements["tags to skip"]):
-                            showRequirements["tags to skip"].append(
+                                not in show_requirements["skip_tags"]):
+                            show_requirements["skip_tags"].append(
                                 "DroppedByMob")
                         elif (requirement.tag == "killmob" and "nameloca" in requirement.attrib and
-                                "mobid" not in showRequirements["tags to skip"]):
-                            showRequirements["tags to skip"].append("mobid")
+                                "mobid" not in show_requirements["skip_tags"]):
+                            show_requirements["skip_tags"].append("mobid")
                         # CASE 2: Only use the `count` attribute when we know we need it and
                         # requirements are within an `any` tag.
-                        if (achievementID in showRequirements["include count"] and
+                        if (achievementID in show_requirements["include_count"] and
                                 requirement.tag == "any" and "count" in requirement.attrib):
                             REQUIREMENTCOUNT = "Any " + \
                                 requirement.get('count') + " of<br />"
@@ -325,24 +248,24 @@ for relTag, relData in AORELEASES.items():
                         elif "name" in requirement.attrib:
                             if requirement.tag == "item":
                                 if (requirement.get('name') in
-                                    showRequirements["correct SBI naming mistakes"]
+                                    show_requirements["corrections"]
                                         ["item"]["name"]):
                                     correctionIndex = (
-                                        showRequirements["correct SBI naming mistakes"]
+                                        show_requirements["corrections"]
                                         ["item"]["name"].index(requirement.get('name')))
-                                    REQUIREMENTID = (showRequirements["correct SBI naming mistakes"]
+                                    REQUIREMENTID = (show_requirements["corrections"]
                                                      ["item"]["namelocatag"][correctionIndex])
                                 else:
                                     REQUIREMENTID = "@ITEMS_" + \
                                         requirement.get('name')
                             elif requirement.tag == "DroppedByMob":
                                 if (requirement.get('name') in
-                                    showRequirements["correct SBI naming mistakes"]
+                                    show_requirements["corrections"]
                                         ["DroppedByMob"]["name"]):
                                     correctionIndex = (
-                                        showRequirements["correct SBI naming mistakes"]
+                                        show_requirements["corrections"]
                                         ["DroppedByMob"]["name"].index(requirement.get('name')))
-                                    mobLookup = (showRequirements["correct SBI naming mistakes"]
+                                    mobLookup = (show_requirements["corrections"]
                                                  ["DroppedByMob"]["namelocatag"][correctionIndex])
                                 else:
                                     mobLookup = mroot.find(
@@ -375,7 +298,7 @@ for relTag, relData in AORELEASES.items():
                                     REQUIREMENTID = "@MOB_" + \
                                         requirement.get('name')
 
-                                if achievementID in showRequirements["include tier"]:
+                                if achievementID in show_requirements["include_tier"]:
                                     REQUIREMENTTIER = "T" + \
                                         mroot.find(
                                             ".//*[@uniquename='" + requirement.get('name') +
@@ -391,20 +314,28 @@ for relTag, relData in AORELEASES.items():
                                 requirementsList.append(requirementAdd)
 
                     # Handle special skip cases
-                    if "DroppedByMob" in showRequirements["tags to skip"]:
-                        showRequirements["tags to skip"].remove("DroppedByMob")
-                    elif "mobid" in showRequirements["tags to skip"]:
-                        showRequirements["tags to skip"].remove("mobid")
+                    if "DroppedByMob" in show_requirements["skip_tags"]:
+                        show_requirements["skip_tags"].remove("DroppedByMob")
+                    elif "mobid" in show_requirements["skip_tags"]:
+                        show_requirements["skip_tags"].remove("mobid")
 
-                journalHistory[relTag][3][categoryID][1][subcategoryID][1][achievementID] = [
-                    achievementName, rewardID, reward, requirementsList]
+                (journalHistory[relTag]["categories"]
+                 [categoryID]["subcategories"][subcategoryID]["achievements"][achievementID]) = {
+                     "title": achievementName,
+                     "reward": {
+                         "id": rewardID,
+                         "title": reward
+                     },
+                     "requirements": requirementsList
+                }
 
 # Reset the repository to track the main branch.
 repo.git.checkout("master")
 
 # Write all the history data to the reference file.
 try:
-    with open(HISTORYFILE, "w", encoding="utf-8") as f:
+    with open(history_file, "w", encoding="utf-8") as f:
         json.dump(journalHistory, f, indent=4, ensure_ascii=False)
 except IOError:
-    print(f"An error occurred while writing the {HISTORYFILE} file.")
+    print(
+        f"An error occurred while writing the {history_file} file.")

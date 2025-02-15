@@ -1,0 +1,152 @@
+schema_version: 1.0
+
+logging:
+  level: INFO # TODO: Implement logging levels
+  file: journal_xtractor.log # TODO: Implement log output
+
+options:
+  force_rebuild: true # Overwrite history file if `true`
+  history_file: albionjournal-history.json
+
+# The AODP binary file dumps are the resource files used for extraction.
+# The repository is available on GitHub - https://github.com/ao-data/ao-bin-dumps
+# To extract only the most recent Journal information, download the files.
+# To enable the comparison functionality, you must clone the entire repository.
+extract_source:
+  # The AODP dumps are expected at the parent directory level.
+  # If the AODP dumps are somewhere else, modify `parse_dir` in the script.
+  dir_name: ao-bin-dumps
+  journal_xml_file: albionjournal.xml
+  items_xml_file: items.xml
+  mobs_xml_file: mobs.xml
+  localization_xml_file: localization.xml
+
+# The **Albion Journal** was first introduced in the _Paths to Glory_ release.
+# This is the complete list of Albion Online releases, patches, and hotfixes since then.
+ao_releases:
+  f1de4b24e81726c8c638d9708310bf2c4d273711:
+    type: release
+    name: 'Paths to Glory'
+    date: '2024-07-22'
+
+  8c3002ca0a757fe46ee8dcd5514b0be01166ac25:
+    type: patch
+    name: 'Paths to Glory Patch #1'
+    date: '2024-08-07'
+
+  5d2396c21f64123d6c66b32f55650d8dca8811a1:
+    type: patch
+    name: 'Paths to Glory Patch #2'
+    date: '2024-08-21'
+
+  ee92a1cd3c07db05d324e3ca8fbb0adcaffddd69:
+    type: patch
+    name: 'Paths to Glory Patch #3'
+    date: '2024-09-04'
+
+  49fa486b4ea45bdcd35a9f6aabb042d0396324a4:
+    type: patch
+    name: 'Paths to Glory Patch #4'
+    date: '2024-09-18'
+
+  70aa34b154fb0062289cbbc596dca6256043f245:
+    type: release
+    name: 'Horizons'
+    date: '2024-10-28'
+
+  160f7f5c087fa0a0118c7a8477e6a17caf22dc78:
+    type: patch
+    name: 'Horizons Patch #1'
+    date: '2024-11-06'
+
+  a6d1a19cebdb8263f41282a69b62020643b76123:
+    type: patch
+    name: 'Horizons Patch #2'
+    date: '2024-11-20'
+
+  d2dd1d559d37a75cc25b805b5e93ad415c2916a4:
+    type: patch
+    name: 'Horizons Patch #3'
+    date: '2024-11-27'
+
+  4c5495c8de5279e776b6f8e31d42b3dbff0072f2:
+    type: patch
+    name: 'Horizons Patch #4'
+    date: '2024-12-04'
+
+  87bba4cd76217c08c1142db0fe2c5c276640ff2b:
+    type: patch
+    name: 'Horizons Patch #5'
+    date: '2024-12-18'
+
+  44358f340b61e7640ef0ceae79bead7432352336:
+    type: release
+    name: 'Rogue Frontier'
+    date: '2025-02-03'
+
+  44e15edf86a20b055981ae962c968e358690424a:
+    type: hotfix
+    name: 'Rogue Frontier Hotfix #1'
+    date: '2025-02-05'
+
+  c9c9cac6c33de8a5e364354214cfa5ea37e2cd8a:
+    type: patch
+    name: 'Rogue Frontier Patch #1'
+    date: '2025-02-12'
+
+ao_releases_test:
+  c9c9cac6c33de8a5e364354214cfa5ea37e2cd8a:
+    type: patch
+    name: 'Rogue Frontier Patch #1'
+    date: '2025-02-12'
+
+# Define list of achievements to display their requirements (e.g., quest, creature, location)
+# NOTE 1: There are quite a few of these to potentially display, so we're intentionally
+#   choosing a subset of them for aesthetics.
+# NOTE 2: Displaying these introduces significant complexity when parsing the various XML files,
+#   so we must also specify how to handle special cases.
+show_requirements:
+  achievements:
+    - 'SA_EXPEDITION_FINISH_ALL'
+    - 'JOURNAL_PVE_EXPEDITION_FINISH_ALL_HARDCORE'
+    - 'SA_PVE_TRACKING_HUNT_ALL'
+    - 'JOURNAL_PVE_TRACKING_KILL_RARE_MOBS_GROUP_7'
+    - 'JOURNAL_PVE_WORLDBOSS_KILL_T8_WORLDBOSSES_ALL'
+    - 'JOURNAL_PVE_WORLDBOSS_KILL_WORLDBOSSES_IN_ALL_LOCATIONS'
+    - 'SA_PVE_KILL_RD_ELITE_01'
+    - 'JOURNAL_GATHERING_SKINNING_ANIMAL_ALL'
+    - 'JOURNAL_GATHERING_SKINNING_LOOT_BABY_ALL'
+    - 'JOURNAL_GATHERING_FISHING_CATCH_ALL'
+    - 'SA_PVE_KILL_MINIGUARDIANS'
+    - 'JOURNAL_GATHERING_CRITTERS_CRITTERS_UNIQUE_ALL'
+    - 'SA_EXPLORATION_CITIES'
+    - 'JOURNAL_EXPLORATION_CITIES_VISIT_REST_CITY_ALL'
+    - 'JOURNAL_EXPLORATION_TRAVEL_RIDE_ADC_MOUNT'
+    - 'JOURNAL_EXPLORATION_TRAVEL_RIDE_FW_ALL'
+    - 'SA_PVE_MISTS_HUNTER'
+    - 'JOURNAL_EXPLORATION_SMUGGLERS_VISIT_BLACKBANKS_08'
+    - 'SA_FACTIONWARFARE_KILLBOSS_ALL'
+  skip_tags:
+    - 'alternative'
+  include_tier:
+    - ''
+  include_count:
+    - 'SA_FACTIONWARFARE_KILLBOSS_ALL'
+  corrections:
+    xml_tag:
+      xml_attribute_out:
+        - 'ID_TO_SWAP_OUT'
+      xml_attribute_in:
+        - 'ID_TO_SWAP_IN'
+    item:
+      name:
+        - 'ID_TO_SWAP_OUT'
+      namelocatag:
+        - 'ID_TO_SWAP_IN'
+    DroppedByMob:
+      name:
+        - 'T4_MOB_CRITTER_HIDE_COUGAR'
+        - 'T8_MOB_CRITTER_HIDE_COUGAR'
+      namelocatag:
+        - '@MOB_T4_MOB_CRITTER_HIDE_COUGAR'
+        - '@MOB_T8_MOB_CRITTER_HIDE_COUGAR'
