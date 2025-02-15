@@ -5,8 +5,10 @@ logging:
   file: journal_xtractor.log # TODO: Implement log output
 
 options:
+  only_current: true # Don't build history file if `true`
   force_rebuild: true # Overwrite history file if `true`
-  history_file: albionjournal-history.json
+  current_file: journal_extract-current.json
+  history_file: journal_extract-all.json
 
 # The AODP binary file dumps are the resource files used for extraction.
 # The repository is available on GitHub - https://github.com/ao-data/ao-bin-dumps
@@ -15,7 +17,9 @@ options:
 extract_source:
   # The AODP dumps are expected at the parent directory level.
   # If the AODP dumps are somewhere else, modify `parse_dir` in the script.
-  dir_name: ao-bin-dumps
+  repo_dir: ao-bin-dumps
+  repo_url: 'https://github.com/ao-data/ao-bin-dumps'
+  repo_branch: master
   journal_xml_file: albionjournal.xml
   items_xml_file: items.xml
   mobs_xml_file: mobs.xml
@@ -23,6 +27,7 @@ extract_source:
 
 # The **Albion Journal** was first introduced in the _Paths to Glory_ release.
 # This is the complete list of Albion Online releases, patches, and hotfixes since then.
+# The 40-character key is the `git commit` hash used for `git checkout`.
 ao_releases:
   f1de4b24e81726c8c638d9708310bf2c4d273711:
     type: release
