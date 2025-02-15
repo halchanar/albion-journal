@@ -4,6 +4,7 @@ Parse data files from the Albion Online Data Project (AODP) to extract achieveme
 the Albion Journal. Store history of changes for later reference.
 """
 
+import sys
 import tomllib
 import re
 import xml.etree.ElementTree as ET
@@ -17,22 +18,28 @@ try:
     with open("pyproject.toml", "rb") as f:
         pyproject_data = tomllib.load(f)
 except FileNotFoundError:
-    print("pyproject.toml not found")
+    print("Configuration file not found")
+    print("pyproject.toml is required")
+    sys.exit(1)
 except tomllib.TOMLDecodeError:
     print("Error parsing pyproject.toml")
+    sys.exit(1)
 
 project_name = pyproject_data["project"]["name"]
 project_version = pyproject_data["project"]["version"]
 
 # Load configuration settings
-CONFIGFILE = "config_xtractor.yaml"
+CONFIGFILE = "journal_xtractor-config.yaml"
 try:
     with open(CONFIGFILE, "r", encoding="ascii") as f:
         config = yaml.safe_load(f)
 except yaml.YAMLError as e:
     print(f"Error reading YAML file: {e}")
+    sys.exit(1)
 except FileNotFoundError:
     print("Configuration file not found")
+    print(f"{CONFIGFILE} is required")
+    sys.exit(1)
 
 log_level = config["logging"]["level"]
 options = config["options"]
@@ -41,21 +48,27 @@ options = config["options"]
 print(f"Running {project_name} version {project_version}")
 print(f"Logging level: {log_level}")
 print(f"Force rebuild: {options['force_rebuild']}")
+print(f"Only create current file: {options['only_current']}")
 
-# The AODP binary file dumps must be available for extraction.
-# If the AODP dumps are not at the parent directory level, modify the `parse_dir` variable below.
+# The AODP binary file dumps must be available for extraction. Either open an existing repository
+# or clone it from the URL. If the AODP dumps are not at the parent directory level, modify the
+# `parse_dir` variable below.
 extract_source = config["extract_source"]
 history_file = options["history_file"]
 current_dir = Path(__file__).parent
-parse_dir = current_dir.parent / extract_source["dir_name"]
+parse_dir = current_dir.parent / extract_source["repo_dir"]
 
-# Use GitPython to switch to the specific commit associated with each release.
-# See `ao_releases` in the configuration file for the complete list.
-repo = git.Repo(parse_dir)
-ao_releases = config["ao_releases_test"]
-show_requirements = config["show_requirements"]
+try:
+    extract_repo = git.Repo(parse_dir)
+except git.InvalidGitRepositoryError as e:
+    print(f"Invalid repository: {e}")
+    sys.exit(1)
+except git.NoSuchPathError:
+    print("Repository not found... attempting to clone from the URL")
+    extract_repo = git.Repo.clone_from(extract_source["repo_url"], parse_dir)
 
 # This is the data structure used to store the history.
+journalHistory = {}
 """
 journalHistory = {
     "Tag1": {
@@ -87,8 +100,8 @@ journalHistory = {
     }
 }
 """
-
-journalHistory = {}
+ao_releases = config["ao_releases_test"]
+show_requirements = config["show_requirements"]
 
 for relTag, relData in ao_releases.items():
     if options["force_rebuild"] is False:
@@ -101,7 +114,8 @@ for relTag, relData in ao_releases.items():
     print(f"    first available on {relData['date']}")
 
     # Checkout the commit hash associated with the release.
-    repo.git.checkout(relTag)
+    # See `ao_releases` in the configuration file for the complete list.
+    extract_repo.git.checkout(relTag)
 
     jtree = ET.parse(parse_dir / extract_source["journal_xml_file"])
     jroot = jtree.getroot()
@@ -330,7 +344,7 @@ for relTag, relData in ao_releases.items():
                 }
 
 # Reset the repository to track the main branch.
-repo.git.checkout("master")
+extract_repo.git.checkout(extract_source["repo_branch"])
 
 # Write all the history data to the reference file.
 try:
