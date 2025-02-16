@@ -13,15 +13,16 @@ from collections import OrderedDict
 import yaml
 
 # Load project settings
+PROJECTFILE = "pyproject.toml"
 try:
-    with open("pyproject.toml", "rb") as f:
+    with open(PROJECTFILE, "rb") as f:
         pyproject_data = tomllib.load(f)
 except FileNotFoundError:
-    print("Configuration file not found")
-    print("pyproject.toml is required")
+    print(f"{PROJECTFILE} not found and is required... exiting")
     sys.exit(1)
-except tomllib.TOMLDecodeError:
-    print("Error parsing pyproject.toml")
+except tomllib.TOMLDecodeError as e:
+    print(f"Error parsing {PROJECTFILE}: {e}")
+    print("... exiting")
     sys.exit(1)
 
 project_name = pyproject_data["project"]["name"]
@@ -32,37 +33,40 @@ CONFIGFILE = "journal_xtractor-config.yaml"
 try:
     with open(CONFIGFILE, "r", encoding="ascii") as f:
         config = yaml.safe_load(f)
-except yaml.YAMLError as e:
-    print(f"Error reading YAML file: {e}")
-    sys.exit(1)
 except FileNotFoundError:
-    print("Configuration file not found")
-    print(f"{CONFIGFILE} is required")
+    print(f"{CONFIGFILE} not found and is required... exiting")
+    sys.exit(1)
+except yaml.YAMLError as e:
+    print(f"Error parsing {CONFIGFILE}: {e}")
+    print("... exiting")
     sys.exit(1)
 
-log_level = config["logging"]["level"]
-options = config["options"]
+try:
+    log_level = config["logging"]["level"]
+    options = config["options"]
+    current_file = options["current_file"]
+    output_file = options["output_file"]
+except KeyError:
+    print("Required configuration settings not found... exiting")
+    sys.exit(2)
 
 # Display configuration settings
 config_settings = f"""Running {project_name} version {project_version}
-Logging level: {log_level}
-Force rebuild: {options["force_rebuild"]}
-Only create current file: {options["only_current"]}"""
+Logging level: {log_level}"""
 print(config_settings)
 
 # Load data from the latest release.
-current_file = options["current_file"]
 try:
     with open(current_file, "r", encoding="utf-8") as f:
         journalData = json.load(f, object_pairs_hook=OrderedDict)
     if len(journalData.keys()) > 1:
-        raise KeyError("Too many keys, expected 1")
+        raise KeyError(f"{current_file} must contain only 1 key... exiting")
 except FileNotFoundError:
-    print("Data file not found")
-    print(f"{current_file} is required")
+    print(f"{current_file} not found and is required... exiting")
     sys.exit(1)
-except json.JSONDecodeError:
-    print(f"Data file {current_file} does not contain valid JSON")
+except json.JSONDecodeError as e:
+    print(f"Error parsing {current_file}: {e}")
+    print("... exiting")
     sys.exit(1)
 except IOError:
     print(f"An error occurred while reading the {current_file} file.")
@@ -73,7 +77,6 @@ except KeyError as e:
 
 # Begin writing data to the appropriate output file.
 # The output file will be overwritten each time this script runs.
-output_file = options["output_file"]
 journalFile = open(output_file, "w", encoding="utf-8")
 
 # Write file header in `journal.md` format
