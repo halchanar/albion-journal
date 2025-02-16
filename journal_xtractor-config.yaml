@@ -9,6 +9,7 @@ options:
   force_rebuild: true # Overwrite history file if `true`; WARNING: lengthy operation
   current_file: journal_extract-current.json
   history_file: journal_extract-all.json
+  output_file: journal.md
 
 # The AODP binary file dumps are the resource files used for extraction.
 # The repository is available on GitHub - https://github.com/ao-data/ao-bin-dumps
