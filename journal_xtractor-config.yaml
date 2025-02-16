@@ -100,12 +100,6 @@ ao_releases:
     name: 'Rogue Frontier Patch #1'
     date: '2025-02-12'
 
-ao_releases_test:
-  c9c9cac6c33de8a5e364354214cfa5ea37e2cd8a:
-    type: patch
-    name: 'Rogue Frontier Patch #1'
-    date: '2025-02-12'
-
 # Define list of achievements to display their requirements (e.g., quest, creature, location)
 # NOTE 1: There are quite a few of these to potentially display, so we're intentionally
 #   choosing a subset of them for aesthetics.
