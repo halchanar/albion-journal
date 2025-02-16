@@ -51,8 +51,10 @@ except KeyError:
     sys.exit(2)
 
 # Display configuration settings
-config_settings = f"""Running {project_name} version {project_version}
-Logging level: {log_level}"""
+config_settings = f"""
+Running {project_name} version {project_version}
+Logging level: {log_level}
+"""
 print(config_settings)
 
 # Load data from the latest release.
@@ -79,12 +81,42 @@ except KeyError as e:
 # The output file will be overwritten each time this script runs.
 journalFile = open(output_file, "w", encoding="utf-8")
 
-# Write file header in `journal.md` format
-print("```tsx", file=journalFile)
-print(
-    "const Journal = ({ reward }: { reward: string }) => {", file=journalFile)
-print("  return (", file=journalFile)
-print("    <JournalProvider reward={reward}>", file=journalFile)
+# Define `journal.md` format
+JOURNALMDBEGIN = """```tsx
+const Journal = ({ reward }: { reward: string }) => {
+  return (
+    <JournalProvider reward={reward}>"""
+CATEGORYBEGIN = ""
+SUBCATEGORYBEGIN = ""
+SUBCATEGORYHEADER = """              <Table responsive striped borderless hover dark>
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th style={{ width: 500 }}>Reward</th>
+                  </tr>
+                </thead>
+                <tbody>"""
+ACHIEVEMENTBEGIN = "                  <Entry"
+REQUIREMENTSBEGIN = """                    name={
+                      <>"""
+REQUIREMENTSHEADER = """                        <br />
+                        <span className=\"text-muted\">"""
+REQUIREMENTSEND = """                        </span>
+                      </>
+                    }"""
+ACHIEVEMENTEND = "                  />"
+SUBCATEGORYEND = """                </tbody>
+              </Table>"""
+CATEGORYEND = """            </AccordionBody>
+          </AccordionItem>
+        </UncontrolledAccordion>
+      </Section>"""
+JOURNALMDEND = """    </JournalProvider>
+  );
+};
+```"""
+
+print(JOURNALMDBEGIN, file=journalFile)
 
 for relTag, relData in journalData.items():
     print(f"Creating journal.md using data for {relTag}...")
@@ -92,107 +124,90 @@ for relTag, relData in journalData.items():
     print(f"    first available on {relData['date']}")
 
     for categoryID, catData in relData["categories"].items():
-        categoryName = catData["title"]
+        # Use HTML encoding consistent with `journal.md` format
+        categoryID = html.escape(categoryID).replace("#x27", "apos")
+        categoryName = html.escape(catData["title"]).replace("#x27", "apos")
 
         # Count achievements in all subcategories
         achievementCount = sum(len(subCatData["achievements"].values(
         )) for subCatData in catData["subcategories"].values())
 
         # Write category name with total achievement count in `journal.md` format
-        print("", file=journalFile)
-        print("      {/* " + categoryName + " */}", file=journalFile)
+        print(CATEGORYBEGIN, file=journalFile)
+        print(f"      {{/* {categoryName} */}}", file=journalFile)
         print("      <Section>", file=journalFile)
-        print("        <UncontrolledAccordion id=\"" +
-              categoryID.lower() + "\">", file=journalFile)
+        print(
+            f"        <UncontrolledAccordion id=\"{categoryID.lower()}\">", file=journalFile)
         print("          <AccordionItem>", file=journalFile)
-        print("            <AccordionHeader targetId=\"" +
-              categoryID.lower() + "\">", file=journalFile)
-        print("              " + categoryName +
-              " (" + str(achievementCount) + ")", file=journalFile)
+        print(
+            f"            <AccordionHeader targetId=\"{categoryID.lower()}\">", file=journalFile)
+        print(
+            f"              {categoryName} ({str(achievementCount)})", file=journalFile)
         print("            </AccordionHeader>", file=journalFile)
-        print("            <AccordionBody accordionId=\"" + categoryID.lower() + "\">",
-              file=journalFile)
+        print(
+            f"            <AccordionBody accordionId=\"{categoryID.lower()}\">", file=journalFile)
 
         for subcategoryID, subCatData in catData["subcategories"].items():
-            subcategoryName = subCatData["title"]
+            # Use HTML encoding consistent with `journal.md` format
+            subcategoryID = html.escape(subcategoryID).replace("#x27", "apos")
+            subcategoryName = html.escape(
+                subCatData["title"]).replace("#x27", "apos")
 
             # Count achievements in this subcategory
             achievementCount = len(subCatData["achievements"].values())
 
             # Write subcategory name with achievement count in `journal.md` format
-            print("", file=journalFile)
-            print("              <h4>" + subcategoryName + " (" + str(achievementCount) + ")</h4>",
+            print(SUBCATEGORYBEGIN, file=journalFile)
+            print(f"              <h4>{subcategoryName} ({str(achievementCount)})</h4>",
                   file=journalFile)
-            print("              <Table responsive striped borderless hover dark>",
-                  file=journalFile)
-            print("                <thead>", file=journalFile)
-            print("                  <tr>", file=journalFile)
-            print("                    <th>Name</th>", file=journalFile)
-            print(
-                "                    <th style={{ width: 500 }}>Reward</th>", file=journalFile)
-            print("                  </tr>", file=journalFile)
-            print("                </thead>", file=journalFile)
-            print("                <tbody>", file=journalFile)
+            print(SUBCATEGORYHEADER, file=journalFile)
 
             for achievementID, achData in subCatData["achievements"].items():
-                achievementName = achData["title"]
-                rewardID = achData["reward"]["id"]
-                reward = achData["reward"]["title"]
+                # Use HTML encoding consistent with `journal.md` format
+                achievementID = html.escape(
+                    achievementID).replace("#x27", "apos")
+                achievementName = html.escape(
+                    achData["title"]).replace("#x27", "apos")
+                rewardID = html.escape(
+                    achData["reward"]["id"]).replace("#x27", "apos")
+                reward = html.escape(
+                    achData["reward"]["title"]).replace("#x27", "apos")
                 requirementsNote = achData["requirements"]["note"]
                 requirementsList = achData["requirements"]["list"]
-
-                # Write achievement entry in `journal.md` format
-                print("                  <Entry", file=journalFile)
-                print("                    entryID=\"" +
-                      html.escape(achievementID).replace("#x27", "apos") + "\"", file=journalFile)
-
                 # Use HTML encoding for all requirements
                 for k, v in enumerate(requirementsList):
                     requirementsList[k] = html.escape(
                         v).replace("#x27", "apos")
 
+                # Write achievement entry in `journal.md` format
+                print(ACHIEVEMENTBEGIN, file=journalFile)
+                print(
+                    f"                    entryID=\"{achievementID}\"", file=journalFile)
+
                 if requirementsList:
                     # Include requirements with certain achievements
-                    print("                    name={", file=journalFile)
-                    print("                      <>", file=journalFile)
-                    print("                        " +
-                          html.escape(achievementName).replace("#x27", "apos"), file=journalFile)
-                    print("                        <br />", file=journalFile)
+                    print(REQUIREMENTSBEGIN, file=journalFile)
                     print(
-                        "                        <span className=\"text-muted\">", file=journalFile)
-                    print("                          " +
-                          requirementsNote, end="", file=journalFile)
+                        f"                        {achievementName}", file=journalFile)
+                    print(REQUIREMENTSHEADER, file=journalFile)
+                    print(
+                        f"                          {requirementsNote}", end="", file=journalFile)
                     print(*requirementsList, sep=", ", file=journalFile)
-                    print("                        </span>", file=journalFile)
-                    print("                      </>", file=journalFile)
-                    print("                    }", file=journalFile)
+                    print(REQUIREMENTSEND, file=journalFile)
                 else:
                     # Most achievements will not include their requirements
-                    print("                    name=\"" +
-                          html.escape(achievementName).replace(
-                              "#x27", "apos") + "\"", file=journalFile)
+                    print(
+                        f"                    name=\"{achievementName}\"", file=journalFile)
 
-                # Write achievement remaining detail and end tag in `journal.md` format
-                print("                    id=\"" +
-                      rewardID + "\"", file=journalFile)
-                print("                    title=\"" +
-                      reward + "\"", file=journalFile)
-                print("                  />", file=journalFile)
+                print(
+                    f"                    id=\"{rewardID}\"", file=journalFile)
+                print(
+                    f"                    title=\"{reward}\"", file=journalFile)
+                print(ACHIEVEMENTEND, file=journalFile)
 
-            # Write subcategory end tags in `journal.md` format
-            print("                </tbody>", file=journalFile)
-            print("              </Table>", file=journalFile)
+            print(SUBCATEGORYEND, file=journalFile)
 
-        # Write category end tags in `journal.md` format
-        print("            </AccordionBody>", file=journalFile)
-        print("          </AccordionItem>", file=journalFile)
-        print("        </UncontrolledAccordion>", file=journalFile)
-        print("      </Section>", file=journalFile)
+        print(CATEGORYEND, file=journalFile)
 
-# Write file footer in `journal.md` format
-print("    </JournalProvider>", file=journalFile)
-print("  );", file=journalFile)
-print("};", file=journalFile)
-print("```", file=journalFile)
-
+print(JOURNALMDEND, file=journalFile)
 journalFile.close()
