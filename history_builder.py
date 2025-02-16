@@ -90,9 +90,12 @@ journalHistory = {
                                     "id": "Achievement1 Reward ID",
                                     "title": "Achievement1 Reward Title"
                                 },
-                                "requirements": [
-                                    "Achievement1 Requirement1"
-                                ]
+                                "requirements": {
+                                    "note": "Achievement1 Requirements Note",
+                                    "list": [
+                                        "Achievement1 Requirement1"
+                                    ]
+                                }
                             }
                         }
                     }
@@ -237,6 +240,7 @@ for relTag, relData in ao_releases.items():
 
                 # Determine requirements for certain achievements
                 requirementsList = []
+                REQUIREMENTSNOTE = ""
                 if achievementID in show_requirements["achievements"]:
                     REQUIREMENTCOUNT = ""
                     for requirement in jroot.findall(".//*[@name='" + achievementID + "']//"):
@@ -263,6 +267,7 @@ for relTag, relData in ao_releases.items():
                                 requirement.tag == "any" and "count" in requirement.attrib):
                             REQUIREMENTCOUNT = "Any " + \
                                 requirement.get('count') + " of<br />"
+                            REQUIREMENTSNOTE = REQUIREMENTCOUNT
 
                         if "nameloca" in requirement.attrib:
                             REQUIREMENTID = requirement.get('nameloca')
@@ -352,7 +357,10 @@ for relTag, relData in ao_releases.items():
                          "id": rewardID,
                          "title": reward
                      },
-                     "requirements": requirementsList
+                     "requirements": {
+                         "note": REQUIREMENTSNOTE,
+                         "list": requirementsList
+                     }
                 }
 
 # Reset the repository to track the main branch.
