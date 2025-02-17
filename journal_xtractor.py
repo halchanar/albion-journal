@@ -6,22 +6,20 @@ publication on [Albion Online Grind](https://albiononlinegrind.com/guides/albion
 """
 
 import sys
-import tomllib
-import html
-import json
-from collections import OrderedDict
-import yaml
+import lib
+
+PROJECTFILE = "pyproject.toml"
+CONFIGFILE = "journal_xtractor-config.yaml"
 
 # Load project settings
-PROJECTFILE = "pyproject.toml"
 try:
-    with open(PROJECTFILE, "rb") as f:
-        pyproject_data = tomllib.load(f)
-except FileNotFoundError:
-    print(f"{PROJECTFILE} not found and is required... exiting")
+    pyproject_data = lib.load_toml_data(PROJECTFILE)
+except FileNotFoundError as e:
+    print(e)
+    print(f"{PROJECTFILE} is required... exiting")
     sys.exit(1)
-except tomllib.TOMLDecodeError as e:
-    print(f"Error parsing {PROJECTFILE}: {e}")
+except ChildProcessError as e:
+    print(e)
     print("... exiting")
     sys.exit(1)
 
@@ -29,24 +27,21 @@ project_name = pyproject_data["project"]["name"]
 project_version = pyproject_data["project"]["version"]
 
 # Load configuration settings
-CONFIGFILE = "journal_xtractor-config.yaml"
 try:
-    with open(CONFIGFILE, "r", encoding="ascii") as f:
-        config = yaml.safe_load(f)
-except FileNotFoundError:
-    print(f"{CONFIGFILE} not found and is required... exiting")
-    sys.exit(1)
-except yaml.YAMLError as e:
-    print(f"Error parsing {CONFIGFILE}: {e}")
-    print("... exiting")
-    sys.exit(1)
-
-try:
+    config = lib.load_yaml_data(CONFIGFILE)
     log_level = config["logging"]["level"]
     options = config["options"]
     current_file = options["current_file"]
     output_file = options["output_file"]
     templates = config["journal_md_templates"]
+except FileNotFoundError as e:
+    print(e)
+    print(f"{CONFIGFILE} is required... exiting")
+    sys.exit(1)
+except ChildProcessError as e:
+    print(e)
+    print("... exiting")
+    sys.exit(1)
 except KeyError:
     print("Required configuration settings not found... exiting")
     sys.exit(2)
@@ -60,19 +55,19 @@ print(config_settings)
 
 # Load data from the latest release.
 try:
-    with open(current_file, "r", encoding="utf-8") as f:
-        journalData = json.load(f, object_pairs_hook=OrderedDict)
+    journalData = lib.load_json_data(current_file)
     if len(journalData.keys()) > 1:
         raise KeyError(f"{current_file} must contain only 1 key... exiting")
-except FileNotFoundError:
-    print(f"{current_file} not found and is required... exiting")
+except FileNotFoundError as e:
+    print(e)
+    print(f"{current_file} is required... exiting")
     sys.exit(1)
-except json.JSONDecodeError as e:
-    print(f"Error parsing {current_file}: {e}")
+except ChildProcessError as e:
+    print(e)
     print("... exiting")
     sys.exit(1)
-except IOError:
-    print(f"An error occurred while reading the {current_file} file.")
+except IOError as e:
+    print(e)
     sys.exit(1)
 except KeyError as e:
     print(e)
@@ -90,8 +85,8 @@ for relTag, relData in journalData.items():
 
     for categoryID, catData in relData["categories"].items():
         # Use HTML encoding consistent with `journal.md` format
-        categoryID = html.escape(categoryID).replace("#x27", "apos")
-        categoryName = html.escape(catData["title"]).replace("#x27", "apos")
+        categoryID = lib.escape_html(categoryID)
+        categoryName = lib.escape_html(catData["title"])
 
         # Count achievements in all subcategories
         achievementCount = sum(len(subCatData["achievements"].values(
@@ -105,8 +100,7 @@ for relTag, relData in journalData.items():
 
         for subcategoryID, subCatData in catData["subcategories"].items():
             # Use HTML encoding consistent with `journal.md` format
-            subcategoryName = html.escape(
-                subCatData["title"]).replace("#x27", "apos")
+            subcategoryName = lib.escape_html(subCatData["title"])
 
             # Count achievements in this subcategory
             achievementCount = len(subCatData["achievements"].values())
@@ -119,20 +113,15 @@ for relTag, relData in journalData.items():
 
             for achievementID, achData in subCatData["achievements"].items():
                 # Use HTML encoding consistent with `journal.md` format
-                achievementID = html.escape(
-                    achievementID).replace("#x27", "apos")
-                achievementName = html.escape(
-                    achData["title"]).replace("#x27", "apos")
-                rewardID = html.escape(
-                    achData["reward"]["id"]).replace("#x27", "apos")
-                reward = html.escape(
-                    achData["reward"]["title"]).replace("#x27", "apos")
+                achievementID = lib.escape_html(achievementID)
+                achievementName = lib.escape_html(achData["title"])
+                rewardID = lib.escape_html(achData["reward"]["id"])
+                reward = lib.escape_html(achData["reward"]["title"])
                 requirementsNote = achData["requirements"]["note"]
                 requirementsList = achData["requirements"]["list"]
                 # Use HTML encoding for all requirements
                 for k, v in enumerate(requirementsList):
-                    requirementsList[k] = html.escape(
-                        v).replace("#x27", "apos")
+                    requirementsList[k] = lib.escape_html(v)
 
                 # Write achievement entry in `journal.md` format
                 templateInput = {
