@@ -46,6 +46,7 @@ try:
     options = config["options"]
     current_file = options["current_file"]
     output_file = options["output_file"]
+    templates = config["journal_md_templates"]
 except KeyError:
     print("Required configuration settings not found... exiting")
     sys.exit(2)
@@ -80,43 +81,7 @@ except KeyError as e:
 # Begin writing data to the appropriate output file.
 # The output file will be overwritten each time this script runs.
 journalFile = open(output_file, "w", encoding="utf-8")
-
-# Define `journal.md` format
-JOURNALMDBEGIN = """```tsx
-const Journal = ({ reward }: { reward: string }) => {
-  return (
-    <JournalProvider reward={reward}>"""
-CATEGORYBEGIN = ""
-SUBCATEGORYBEGIN = ""
-SUBCATEGORYHEADER = """              <Table responsive striped borderless hover dark>
-                <thead>
-                  <tr>
-                    <th>Name</th>
-                    <th style={{ width: 500 }}>Reward</th>
-                  </tr>
-                </thead>
-                <tbody>"""
-ACHIEVEMENTBEGIN = "                  <Entry"
-REQUIREMENTSBEGIN = """                    name={
-                      <>"""
-REQUIREMENTSHEADER = """                        <br />
-                        <span className=\"text-muted\">"""
-REQUIREMENTSEND = """                        </span>
-                      </>
-                    }"""
-ACHIEVEMENTEND = "                  />"
-SUBCATEGORYEND = """                </tbody>
-              </Table>"""
-CATEGORYEND = """            </AccordionBody>
-          </AccordionItem>
-        </UncontrolledAccordion>
-      </Section>"""
-JOURNALMDEND = """    </JournalProvider>
-  );
-};
-```"""
-
-print(JOURNALMDBEGIN, file=journalFile)
+print(templates["file_begin"], file=journalFile)
 
 for relTag, relData in journalData.items():
     print(f"Creating journal.md using data for {relTag}...")
@@ -133,23 +98,13 @@ for relTag, relData in journalData.items():
         )) for subCatData in catData["subcategories"].values())
 
         # Write category name with total achievement count in `journal.md` format
-        print(CATEGORYBEGIN, file=journalFile)
-        print(f"      {{/* {categoryName} */}}", file=journalFile)
-        print("      <Section>", file=journalFile)
-        print(
-            f"        <UncontrolledAccordion id=\"{categoryID.lower()}\">", file=journalFile)
-        print("          <AccordionItem>", file=journalFile)
-        print(
-            f"            <AccordionHeader targetId=\"{categoryID.lower()}\">", file=journalFile)
-        print(
-            f"              {categoryName} ({str(achievementCount)})", file=journalFile)
-        print("            </AccordionHeader>", file=journalFile)
-        print(
-            f"            <AccordionBody accordionId=\"{categoryID.lower()}\">", file=journalFile)
+        templateInput = {"categoryID": categoryID.lower(), "categoryName": categoryName,
+                         "achievementCount": str(achievementCount)}
+        print(templates["category_begin"].format(
+            **templateInput), file=journalFile)
 
         for subcategoryID, subCatData in catData["subcategories"].items():
             # Use HTML encoding consistent with `journal.md` format
-            subcategoryID = html.escape(subcategoryID).replace("#x27", "apos")
             subcategoryName = html.escape(
                 subCatData["title"]).replace("#x27", "apos")
 
@@ -157,10 +112,10 @@ for relTag, relData in journalData.items():
             achievementCount = len(subCatData["achievements"].values())
 
             # Write subcategory name with achievement count in `journal.md` format
-            print(SUBCATEGORYBEGIN, file=journalFile)
-            print(f"              <h4>{subcategoryName} ({str(achievementCount)})</h4>",
-                  file=journalFile)
-            print(SUBCATEGORYHEADER, file=journalFile)
+            templateInput = {"subcategoryName": subcategoryName,
+                             "achievementCount": str(achievementCount)}
+            print(templates["subcategory_begin"].format(
+                **templateInput), file=journalFile)
 
             for achievementID, achData in subCatData["achievements"].items():
                 # Use HTML encoding consistent with `journal.md` format
@@ -180,34 +135,26 @@ for relTag, relData in journalData.items():
                         v).replace("#x27", "apos")
 
                 # Write achievement entry in `journal.md` format
-                print(ACHIEVEMENTBEGIN, file=journalFile)
-                print(
-                    f"                    entryID=\"{achievementID}\"", file=journalFile)
-
+                templateInput = {
+                    "achievementID": achievementID,
+                    "achievementName": achievementName,
+                    "rewardID": rewardID,
+                    "reward": reward,
+                    "requirementsNote": requirementsNote,
+                    "requirementsList": ", ".join(requirementsList)
+                }
                 if requirementsList:
                     # Include requirements with certain achievements
-                    print(REQUIREMENTSBEGIN, file=journalFile)
-                    print(
-                        f"                        {achievementName}", file=journalFile)
-                    print(REQUIREMENTSHEADER, file=journalFile)
-                    print(
-                        f"                          {requirementsNote}", end="", file=journalFile)
-                    print(*requirementsList, sep=", ", file=journalFile)
-                    print(REQUIREMENTSEND, file=journalFile)
+                    print(templates["achievement_with_requirements"].format(
+                        **templateInput), file=journalFile)
                 else:
                     # Most achievements will not include their requirements
-                    print(
-                        f"                    name=\"{achievementName}\"", file=journalFile)
+                    print(templates["achievement"].format(
+                        **templateInput), file=journalFile)
 
-                print(
-                    f"                    id=\"{rewardID}\"", file=journalFile)
-                print(
-                    f"                    title=\"{reward}\"", file=journalFile)
-                print(ACHIEVEMENTEND, file=journalFile)
+            print(templates["subcategory_end"], file=journalFile)
 
-            print(SUBCATEGORYEND, file=journalFile)
+        print(templates["category_end"], file=journalFile)
 
-        print(CATEGORYEND, file=journalFile)
-
-print(JOURNALMDEND, file=journalFile)
+print(templates["file_end"], file=journalFile)
 journalFile.close()

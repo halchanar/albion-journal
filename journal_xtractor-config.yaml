@@ -150,3 +150,77 @@ show_requirements:
       namelocatag:
         - '@MOB_T4_MOB_CRITTER_HIDE_COUGAR'
         - '@MOB_T8_MOB_CRITTER_HIDE_COUGAR'
+
+# Define `journal.md` format using a series of templates with variable placeholders
+# NOTE: Templates using placeholders are imported as `f-string` and must escape
+#   special characters (`{`, `}`).
+# prettier-ignore
+journal_md_templates:
+  file_begin: |-2
+    ```tsx
+    const Journal = ({ reward }: { reward: string }) => {
+      return (
+        <JournalProvider reward={reward}>
+
+  category_begin: |-2
+    
+          {{/* {categoryName} */}}
+          <Section>
+            <UncontrolledAccordion id="{categoryID}">
+              <AccordionItem>
+                <AccordionHeader targetId="{categoryID}">
+                  {categoryName} ({achievementCount})
+                </AccordionHeader>
+                <AccordionBody accordionId="{categoryID}">
+
+  subcategory_begin: |-2
+    
+                  <h4>{subcategoryName} ({achievementCount})</h4>
+                  <Table responsive striped borderless hover dark>
+                    <thead>
+                      <tr>
+                        <th>Name</th>
+                        <th style={{{{ width: 500 }}}}>Reward</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+
+  achievement_with_requirements: |-2
+                      <Entry
+                        entryID="{achievementID}"
+                        name={{
+                          <>
+                            {achievementName}
+                            <br />
+                            <span className="text-muted">
+                              {requirementsNote}{requirementsList}
+                            </span>
+                          </>
+                        }}
+                        id="{rewardID}"
+                        title="{reward}"
+                      />
+
+  achievement: |-2
+                      <Entry
+                        entryID="{achievementID}"
+                        name="{achievementName}"
+                        id="{rewardID}"
+                        title="{reward}"
+                      />
+
+  subcategory_end: |-2
+                    </tbody>
+                  </Table>
+
+  category_end: |-2
+                </AccordionBody>
+              </AccordionItem>
+            </UncontrolledAccordion>
+          </Section>
+
+  file_end: |-2
+        </JournalProvider>
+      );
+    };
+    ```
