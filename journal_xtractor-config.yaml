@@ -7,8 +7,8 @@ logging:
 options:
   only_current: true # Don't build history file if `true`
   force_rebuild: true # Overwrite history file if `true`; WARNING: lengthy operation
-  current_file: journal_extract-current.json
-  history_file: journal_extract-all.json
+  current_file: journal.json
+  history_file: journal-history.json
   output_file: journal.md
 
 # The AODP binary file dumps are the resource files used for extraction.
@@ -99,6 +99,11 @@ ao_releases:
     type: patch
     name: 'Rogue Frontier Patch #1'
     date: '2025-02-12'
+
+  75ee53b96d0b940f41f74cdaac77a37efe243eec:
+    type: patch
+    name: 'Rogue Frontier Patch #2'
+    date: '2025-02-26'
 
 # Define list of achievements to display their requirements (e.g., quest, creature, location)
 # NOTE 1: There are quite a few of these to potentially display, so we're intentionally
