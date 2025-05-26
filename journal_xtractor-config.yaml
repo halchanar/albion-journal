@@ -105,6 +105,36 @@ ao_releases:
     name: 'Rogue Frontier Patch #2'
     date: '2025-02-26'
 
+  1f0ece1d8aaa5a8b2e1b74183ef764695e4fb1be:
+    type: patch
+    name: 'Rogue Frontier Patch #3'
+    date: '2025-03-12'
+
+  6e85dfb3260d08b490a258c62a754ad92fd6c61d:
+    type: patch
+    name: 'Rogue Frontier Patch #4'
+    date: '2025-03-26'
+
+  73afc2ff2183e18cdd0b134b6b4d81f39d5c7cb8:
+    type: patch
+    name: 'Rogue Frontier Patch #5'
+    date: '2025-04-07'
+
+  144e668cc2978a112da64efba15fa77ca2f82e06:
+    type: patch
+    name: 'Rogue Frontier Patch #6'
+    date: '2025-04-23'
+
+  e149558cc70eeae358c2b3b242bf8f344af55ed6:
+    type: patch
+    name: 'Rogue Frontier Patch #7'
+    date: '2025-05-12'
+
+  ec9592da1a687821a6ee75b55dbb9cb109f31982:
+    type: patch
+    name: 'Rogue Frontier Patch #8'
+    date: '2025-05-26'
+
 # Define list of achievements to display their requirements (e.g., quest, creature, location)
 # NOTE 1: There are quite a few of these to potentially display, so we're intentionally
 #   choosing a subset of them for aesthetics.
