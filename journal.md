@@ -1,7 +1,13 @@
 ```tsx
-const Journal = ({ reward }: { reward: string }) => {
+const Journal = ({
+  reward,
+  hideCompleted,
+}: {
+  reward: string;
+  hideCompleted: boolean;
+}) => {
   return (
-    <JournalProvider reward={reward}>
+    <JournalProvider reward={reward} hideCompleted={hideCompleted}>
       {/* PvE Activities */}
       <Section>
         <UncontrolledAccordion id="pve">
@@ -8800,7 +8806,7 @@ const Journal = ({ reward }: { reward: string }) => {
                   />
                   <Entry
                     entryID="JOURNAL_CREATURES_KEEPER_BESTIARY_HUNTRESS_MINIBOSS"
-                    name="Defeat any Pack Leader or Axe-Maiden"
+                    name="Defeat any Pack Leader"
                     id="T6_SKILLBOOK_NONTRADABLE"
                     title="Master's Tome of Insight"
                   />
@@ -8842,7 +8848,7 @@ const Journal = ({ reward }: { reward: string }) => {
                   />
                   <Entry
                     entryID="JOURNAL_CREATURES_KEEPER_BESTIARY_DRUID_BOSS"
-                    name="Defeat any Elder, Evoker, Savant, or Archdruid"
+                    name="Defeat any Great Druid, Evoker, Savant, or Archdruid"
                     id="T2_LEARNINGPOINTS_NONTRADABLE"
                     title="Novice's Tome of Learning"
                   />
@@ -8860,7 +8866,7 @@ const Journal = ({ reward }: { reward: string }) => {
                   />
                   <Entry
                     entryID="JOURNAL_CREATURES_KEEPER_BESTIARY_WITCH"
-                    name="Defeat any Shaman"
+                    name="Defeat any Oracle"
                     id="T3_LEARNINGPOINTS_NONTRADABLE"
                     title="Journeyman's Tome of Learning"
                   />
