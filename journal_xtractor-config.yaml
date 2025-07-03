@@ -135,6 +135,11 @@ ao_releases:
     name: 'Rogue Frontier Patch #8'
     date: '2025-05-26'
 
+  fae34e9fce2e8d16884c40386a3eff916a6a0ef3:
+    type: release
+    name: 'Abyssal Depths'
+    date: '2025-06-30'
+
 # Define list of achievements to display their requirements (e.g., quest, creature, location)
 # NOTE 1: There are quite a few of these to potentially display, so we're intentionally
 #   choosing a subset of them for aesthetics.
@@ -193,9 +198,9 @@ show_requirements:
 journal_md_templates:
   file_begin: |-2
     ```tsx
-    const Journal = ({ reward }: { reward: string }) => {
+    const Journal = ({ reward, hideCompleted }: { reward: string; hideCompleted: boolean }) => {
       return (
-        <JournalProvider reward={reward}>
+        <JournalProvider reward={reward} hideCompleted={hideCompleted}>
 
   category_begin: |-2
     
