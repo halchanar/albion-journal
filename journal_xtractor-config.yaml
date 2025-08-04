@@ -140,6 +140,10 @@ ao_releases:
     name: 'Abyssal Depths'
     date: '2025-06-30'
 
+# Define list of localization corrections
+localization_corrections:
+  '@JOURNAL_CATEGORY_ARCHIVE': '@JOURNAL_CATEGORY_TITLE_ARCHIVE'
+
 # Define list of achievements to display their requirements (e.g., quest, creature, location)
 # NOTE 1: There are quite a few of these to potentially display, so we're intentionally
 #   choosing a subset of them for aesthetics.
