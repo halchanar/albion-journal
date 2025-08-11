@@ -1,3 +1,7 @@
 # Environment management #
 ##########################
 uv.lock
+
+# Debug files #
+###############
+debug_*
