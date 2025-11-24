@@ -165,7 +165,7 @@ const Journal = ({
                   />
                   <Entry
                     entryID="JOURNAL_TUTORIAL_ROLE_GATHERING_SELL_ITEMS"
-                    name="Sell 80 items on a Marketplace"
+                    name="Sell 80 items directly at a Marketplace"
                     id="T3_SILVERBAG_NONTRADABLE"
                     title="Journeyman's Bag of Silver"
                   />
@@ -4948,7 +4948,7 @@ const Journal = ({
       <Section>
         <UncontrolledAccordion id="pvp">
           <AccordionItem>
-            <AccordionHeader targetId="pvp">PvP (202)</AccordionHeader>
+            <AccordionHeader targetId="pvp">PvP (233)</AccordionHeader>
             <AccordionBody accordionId="pvp">
               <h4>Arena (27)</h4>
               <Table responsive striped borderless hover dark>
@@ -5568,7 +5568,7 @@ const Journal = ({
                 </tbody>
               </Table>
 
-              <h4>Faction Warfare (30)</h4>
+              <h4>Faction Warfare (37)</h4>
               <Table responsive striped borderless hover dark>
                 <thead>
                   <tr>
@@ -5584,22 +5584,16 @@ const Journal = ({
                     title="Journeyman's Tome of Insight"
                   />
                   <Entry
-                    entryID="SA_FACTIONWARFARE_CAPTURE_01"
-                    name="Capture an Outpost"
+                    entryID="JOURNAL_PVP_FACTION_WARFARE_PORTAL_IN"
+                    name="Use a Faction Transport to reach a frontline Province"
+                    id="T3_LEARNINGPOINTS_NONTRADABLE"
+                    title="Journeyman's Tome of Learning"
+                  />
+                  <Entry
+                    entryID="JOURNAL_PVP_FACTION_WARFARE_SMALL_CAMP_01"
+                    name="Open a Small Faction Camp Chest"
                     id="T4_SKILLBOOK_NONTRADABLE"
                     title="Adept's Tome of Insight"
-                  />
-                  <Entry
-                    entryID="SA_FACTIONWARFARE_CLUSTER_CAPTURE"
-                    name="Assist in completely capturing another city's zone in Faction Warfare"
-                    id="T4_SILVERBAG_NONTRADABLE"
-                    title="Adept's Bag of Silver"
-                  />
-                  <Entry
-                    entryID="SA_FACTIONWARFARE_CAPTURE_02"
-                    name="Capture 10 Outposts"
-                    id="T5_SILVERBAG_NONTRADABLE"
-                    title="Expert's Bag of Silver"
                   />
                   <Entry
                     entryID="JOURNAL_PVP_FACTION_WARFARE_DAILY_MISSION"
@@ -5608,10 +5602,28 @@ const Journal = ({
                     title="Adept's Bag of Silver"
                   />
                   <Entry
+                    entryID="JOURNAL_PVP_FACTION_WARFARE_MEDIUM_CAMP_01"
+                    name="Open a Medium Faction Camp Chest"
+                    id="T5_SKILLBOOK_NONTRADABLE"
+                    title="Expert's Tome of Insight"
+                  />
+                  <Entry
                     entryID="JOURNAL_PVP_FACTION_WARFARE_PLAYER_KNOCKDOWN_01"
                     name="Knock down or assist a knockdown of an enemy faction player"
                     id="T4_SKILLBOOK_NONTRADABLE"
                     title="Adept's Tome of Insight"
+                  />
+                  <Entry
+                    entryID="JOURNAL_PVP_FACTION_WARFARE_PORTAL_OUT"
+                    name="Use a Faction Transport to travel to your Faction's city"
+                    id="T2_LEARNINGPOINTS_NONTRADABLE"
+                    title="Novice's Tome of Learning"
+                  />
+                  <Entry
+                    entryID="JOURNAL_PVP_FACTION_WARFARE_SMALL_CHEST_01"
+                    name="Claim a Small Faction Treasure Chest"
+                    id="T6_SKILLBOOK_NONTRADABLE"
+                    title="Master's Tome of Insight"
                   />
                   <Entry
                     entryID="JOURNAL_PVP_FACTION_WARFARE_RANK_01"
@@ -5620,10 +5632,28 @@ const Journal = ({
                     title="Expert's Bag of Silver"
                   />
                   <Entry
-                    entryID="JOURNAL_PVP_FACTION_WARFARE_BOSSES_02"
-                    name="Defeat 2 different Faction Champions"
-                    id="T5_SKILLBOOK_NONTRADABLE"
-                    title="Expert's Tome of Insight"
+                    entryID="JOURNAL_PVP_FACTION_WARFARE_SMALL_CAMP_02"
+                    name="Open 10 Small Faction Camp Chests"
+                    id="T7_SKILLBOOK_NONTRADABLE"
+                    title="Grandmaster's Tome of Insight"
+                  />
+                  <Entry
+                    entryID="JOURNAL_PVP_FACTION_WARFARE_MEDIUM_CHEST_01"
+                    name="Claim a Medium Faction Treasure Chest"
+                    id="T2_LEARNINGPOINTS_NONTRADABLE"
+                    title="Novice's Tome of Learning"
+                  />
+                  <Entry
+                    entryID="JOURNAL_PVP_FACTION_WARFARE_STEAL_CHEST"
+                    name="Steal loot from a Faction Camp Chest claimed by another Faction"
+                    id="T6_SKILLBOOK_NONTRADABLE"
+                    title="Master's Tome of Insight"
+                  />
+                  <Entry
+                    entryID="JOURNAL_PVP_FACTION_WARFARE_MEDIUM_CAMP_02"
+                    name="Open 10 Medium Faction Camp Chests"
+                    id="T7_SKILLBOOK_NONTRADABLE"
+                    title="Grandmaster's Tome of Insight"
                   />
                   <Entry
                     entryID="JOURNAL_PVP_FACTION_WARFARE_RANK_02"
@@ -5632,16 +5662,16 @@ const Journal = ({
                     title="Expert's Bag of Silver"
                   />
                   <Entry
-                    entryID="JOURNAL_PVP_FACTION_WARFARE_CAPTURE_01"
-                    name="Capture 30 Faction Outposts"
-                    id="T1_KILL_EMOTE_FLAG_CHARGES_NONTRADABLE"
-                    title="Guild Banner Victory Emote Charge (x10)"
-                  />
-                  <Entry
                     entryID="SA_FACTIONWARFARE_TRADEMISSION_01"
                     name="Finish a Trade Mission for any city"
                     id="T2_LEARNINGPOINTS_NONTRADABLE"
                     title="Novice's Tome of Learning"
+                  />
+                  <Entry
+                    entryID="JOURNAL_PVP_FACTION_WARFARE_SMALL_CHEST_02"
+                    name="Claim 10 Small Faction Treasure Chests"
+                    id="T7_SKILLBOOK_NONTRADABLE"
+                    title="Grandmaster's Tome of Insight"
                   />
                   <Entry
                     entryID="JOURNAL_PVP_FACTION_WARFARE_RANK_03"
@@ -5650,22 +5680,22 @@ const Journal = ({
                     title="Master's Bag of Silver"
                   />
                   <Entry
-                    entryID="JOURNAL_PVP_FACTION_WARFARE_RED_01"
-                    name="Capture 5 Outposts in Red Zones"
-                    id="T3_LEARNINGPOINTS_NONTRADABLE"
-                    title="Journeyman's Tome of Learning"
-                  />
-                  <Entry
-                    entryID="JOURNAL_PVP_FACTION_WARFARE_BOSSES_03"
-                    name="Defeat 3 different Faction Champions"
-                    id="T1_KILL_EMOTE_OVERGROWN_CHARGES_NONTRADABLE"
-                    title="Overgrown Victory Emote Charge (x20)"
+                    entryID="JOURNAL_PVP_FACTION_WARFARE_MEDIUM_CHEST_02"
+                    name="Claim 10 Medium Faction Treasure Chests"
+                    id="T8_SKILLBOOK_NONTRADABLE"
+                    title="Elder's Tome of Insight"
                   />
                   <Entry
                     entryID="JOURNAL_PVP_FACTION_WARFARE_KILL_01"
                     name="Kill or assist a kill of an enemy faction player in a Red Zone"
                     id="T6_SKILLBOOK_NONTRADABLE"
                     title="Master's Tome of Insight"
+                  />
+                  <Entry
+                    entryID="JOURNAL_PVP_FACTION_WARFARE_SMALL_CAMP_03"
+                    name="Open 100 Small Faction Camp Chests"
+                    id="T8_SKILLBOOK_NONTRADABLE"
+                    title="Elder's Tome of Insight"
                   />
                   <Entry
                     entryID="SA_FACTIONWARFARE_BANDIT_ASSAULT"
@@ -5680,10 +5710,10 @@ const Journal = ({
                     title="Grandmaster's Bag of Silver"
                   />
                   <Entry
-                    entryID="SA_FACTIONWARFARE_CAPTURE_03"
-                    name="Capture 100 Outposts"
-                    id="UNIQUE_REPAIRPOWDER_ADC_GENERAL_01_NONTRADEABLE"
-                    title="Scroll of Repair"
+                    entryID="JOURNAL_PVP_FACTION_WARFARE_MEDIUM_CAMP_03"
+                    name="Open 100 Medium Faction Camp Chests"
+                    id="T8_SKILLBOOK_NONTRADABLE"
+                    title="Elder's Tome of Insight (x3)"
                   />
                   <Entry
                     entryID="SA_FACTIONWARFARE_STANDING_MAX"
@@ -5692,29 +5722,28 @@ const Journal = ({
                     title="Grandmaster's Bag of Silver"
                   />
                   <Entry
-                    entryID="SA_FACTIONWARFARE_KILLBOSS_ALL"
-                    name={
-                      <>
-                        Defeat all opposing City Faction Warmasters at least
-                        once
-                        <br />
-                        <span className="text-muted">
-                          Any 5 of
-                          <br />
-                          Champion of Lymhurst, Champion of Martlock, Champion
-                          of Fort Sterling, Champion of Bridgewatch, Champion of
-                          Thetford, Bandit Ringleader
-                        </span>
-                      </>
-                    }
-                    id="T7_SKILLBOOK_NONTRADABLE"
-                    title="Grandmaster's Tome of Insight"
+                    entryID="JOURNAL_PVP_FACTION_WARFARE_SMALL_CAMP_04"
+                    name="Open 300 Small Faction Camp Chests"
+                    id="T8_SILVERBAG_NONTRADABLE"
+                    title="Elder's Bag of Silver"
                   />
                   <Entry
-                    entryID="JOURNAL_PVP_FACTION_WARFARE_CAPTURE_02"
-                    name="Capture 300 Faction Outposts"
-                    id="T1_KILL_EMOTE_OVERGROWN_CHARGES_NONTRADABLE"
-                    title="Overgrown Victory Emote Charge (x50)"
+                    entryID="JOURNAL_PVP_FACTION_WARFARE_MEDIUM_CAMP_04"
+                    name="Open 300 Medium Faction Camp Chests"
+                    id="T8_SILVERBAG_NONTRADABLE"
+                    title="Elder's Bag of Silver (x2)"
+                  />
+                  <Entry
+                    entryID="JOURNAL_PVP_FACTION_WARFARE_SMALL_CHEST_03"
+                    name="Claim 100 Small Faction Treasure Chests"
+                    id="T8_SILVERBAG_NONTRADABLE"
+                    title="Elder's Bag of Silver (x2)"
+                  />
+                  <Entry
+                    entryID="JOURNAL_PVP_FACTION_WARFARE_MEDIUM_CHEST_03"
+                    name="Claim 100 Medium Faction Treasure Chests"
+                    id="T8_SILVERBAG_NONTRADABLE"
+                    title="Elder's Bag of Silver (x3)"
                   />
                   <Entry
                     entryID="JOURNAL_PVP_FACTION_WARFARE_PLAYER_KNOCKDOWN_02"
@@ -5769,6 +5798,175 @@ const Journal = ({
                     name="Kill or assist 1,000 enemy faction player kills in Red Zones"
                     id="T8_SILVERBAG_NONTRADABLE"
                     title="Elder's Bag of Silver (x5)"
+                  />
+                </tbody>
+              </Table>
+
+              <h4>Faction Conquest (24)</h4>
+              <Table responsive striped borderless hover dark>
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th style={{ width: 500 }}>Reward</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <Entry
+                    entryID="SA_FACTIONWARFARE_CAPTURE_01"
+                    name="Capture an Outpost"
+                    id="T4_SKILLBOOK_NONTRADABLE"
+                    title="Adept's Tome of Insight"
+                  />
+                  <Entry
+                    entryID="SA_FACTIONWARFARE_CLUSTER_CAPTURE"
+                    name="Assist in completely capturing another city's zone in Faction Warfare"
+                    id="T4_SILVERBAG_NONTRADABLE"
+                    title="Adept's Bag of Silver"
+                  />
+                  <Entry
+                    entryID="SA_FACTIONWARFARE_CAPTURE_02"
+                    name="Capture 10 Outposts"
+                    id="T5_SILVERBAG_NONTRADABLE"
+                    title="Expert's Bag of Silver"
+                  />
+                  <Entry
+                    entryID="JOURNAL_PVP_FACTION_WARFARE_BOSSES_02"
+                    name="Defeat 2 different Faction Champions"
+                    id="T5_SKILLBOOK_NONTRADABLE"
+                    title="Expert's Tome of Insight"
+                  />
+                  <Entry
+                    entryID="JOURNAL_PVP_FACTION_WARFARE_CONQUEST_SUPPLY_VICTORY"
+                    name="Achieve a Supply Victory"
+                    id="T2_LEARNINGPOINTS_NONTRADABLE"
+                    title="Novice's Tome of Learning"
+                  />
+                  <Entry
+                    entryID="JOURNAL_PVP_FACTION_WARFARE_CONQUEST_WEAPON_CACHE_01"
+                    name="Claim a Weapons Cache as a Faction"
+                    id="T5_SKILLBOOK_NONTRADABLE"
+                    title="Expert's Tome of Insight"
+                  />
+                  <Entry
+                    entryID="JOURNAL_PVP_FACTION_WARFARE_CONQUEST_PARTICIPATE_IN_FORTRESS"
+                    name="Participate in a Fortress battle"
+                    id="T3_LEARNINGPOINTS_NONTRADABLE"
+                    title="Journeyman's Tome of Learning"
+                  />
+                  <Entry
+                    entryID="JOURNAL_PVP_FACTION_WARFARE_CAPTURE_01"
+                    name="Capture 30 Faction Outposts"
+                    id="T1_KILL_EMOTE_FLAG_CHARGES_NONTRADABLE"
+                    title="Guild Banner Victory Emote Charge (x10)"
+                  />
+                  <Entry
+                    entryID="JOURNAL_PVP_FACTION_WARFARE_CONQUEST_REPAIR_OR_DAMAGE"
+                    name="Repair or damage 1,000 Fortress Health"
+                    id="T1_KILL_EMOTE_HAMMER_CHARGES_NONTRADABLE"
+                    title="Hammer Victory Emote Charge (x10)"
+                  />
+                  <Entry
+                    entryID="JOURNAL_PVP_FACTION_WARFARE_CONQUEST_FORTRESS_WIN_01"
+                    name="Win 3 Fortress battles"
+                    id="T7_SKILLBOOK_NONTRADABLE"
+                    title="Grandmaster's Tome of Insight"
+                  />
+                  <Entry
+                    entryID="JOURNAL_PVP_FACTION_WARFARE_RED_01"
+                    name="Capture 5 Outposts in Red Zones"
+                    id="T3_LEARNINGPOINTS_NONTRADABLE"
+                    title="Journeyman's Tome of Learning"
+                  />
+                  <Entry
+                    entryID="JOURNAL_PVP_FACTION_WARFARE_BOSSES_03"
+                    name="Defeat 3 different Faction Champions"
+                    id="T1_KILL_EMOTE_OVERGROWN_CHARGES_NONTRADABLE"
+                    title="Overgrown Victory Emote Charge (x20)"
+                  />
+                  <Entry
+                    entryID="JOURNAL_PVP_FACTION_WARFARE_CONQUEST_WEAPON_CACHE_02"
+                    name="Claim 10 Weapons Caches as a Faction"
+                    id="T6_SKILLBOOK_NONTRADABLE"
+                    title="Master's Tome of Insight"
+                  />
+                  <Entry
+                    entryID="JOURNAL_PVP_FACTION_WARFARE_CONQUEST_ONCAPTURECIRCLE_ON_WIN"
+                    name="Stand inside the capture area when a Fortress is conquered"
+                    id="T2_LEARNINGPOINTS_NONTRADABLE"
+                    title="Novice's Tome of Learning"
+                  />
+                  <Entry
+                    entryID="JOURNAL_PVP_FACTION_WARFARE_CONQUEST_FORTRESS_WIN_02"
+                    name="Win 10 Fortress battles"
+                    id="T8_SKILLBOOK_NONTRADABLE"
+                    title="Elder's Tome of Insight"
+                  />
+                  <Entry
+                    entryID="SA_FACTIONWARFARE_CAPTURE_03"
+                    name="Capture 100 Outposts"
+                    id="UNIQUE_REPAIRPOWDER_ADC_GENERAL_01_NONTRADEABLE"
+                    title="Scroll of Repair"
+                  />
+                  <Entry
+                    entryID="JOURNAL_PVP_FACTION_WARFARE_CONQUEST_DAMAGE_WALLS_01"
+                    name="Deal 20,000 damage to Fortresses"
+                    id="T1_KILL_EMOTE_HAMMER_CHARGES_NONTRADABLE"
+                    title="Hammer Victory Emote Charge (x50)"
+                  />
+                  <Entry
+                    entryID="SA_FACTIONWARFARE_KILLBOSS_ALL"
+                    name={
+                      <>
+                        Defeat all opposing City Faction Warmasters at least
+                        once
+                        <br />
+                        <span className="text-muted">
+                          Any 5 of
+                          <br />
+                          Champion of Lymhurst, Champion of Martlock, Champion
+                          of Fort Sterling, Champion of Bridgewatch, Champion of
+                          Thetford, Bandit Ringleader
+                        </span>
+                      </>
+                    }
+                    id="T7_SKILLBOOK_NONTRADABLE"
+                    title="Grandmaster's Tome of Insight"
+                  />
+                  <Entry
+                    entryID="JOURNAL_PVP_FACTION_WARFARE_CONQUEST_FORTRESS_WIN_03"
+                    name="Win 50 Fortress battles"
+                    id="T7_SILVERBAG_NONTRADABLE"
+                    title="Grandmaster's Bag of Silver"
+                  />
+                  <Entry
+                    entryID="JOURNAL_PVP_FACTION_WARFARE_CONQUEST_REPAIR_WALLS_01"
+                    name="Repair 20,000 damage to Fortresses"
+                    id="T1_KILL_EMOTE_HAMMER_CHARGES_NONTRADABLE"
+                    title="Hammer Victory Emote Charge (x50)"
+                  />
+                  <Entry
+                    entryID="JOURNAL_PVP_FACTION_WARFARE_CONQUEST_WEAPON_CACHE_03"
+                    name="Claim 100 Weapons Caches as a Faction"
+                    id="T7_SKILLBOOK_NONTRADABLE"
+                    title="Grandmaster's Tome of Insight"
+                  />
+                  <Entry
+                    entryID="JOURNAL_PVP_FACTION_WARFARE_CONQUEST_FORTRESS_WIN_04"
+                    name="Win 100 Fortress battles"
+                    id="T8_SILVERBAG_NONTRADABLE"
+                    title="Elder's Bag of Silver"
+                  />
+                  <Entry
+                    entryID="JOURNAL_PVP_FACTION_WARFARE_CAPTURE_02"
+                    name="Capture 300 Faction Outposts"
+                    id="T1_KILL_EMOTE_OVERGROWN_CHARGES_NONTRADABLE"
+                    title="Overgrown Victory Emote Charge (x50)"
+                  />
+                  <Entry
+                    entryID="JOURNAL_PVP_FACTION_WARFARE_CONQUEST_FORTRESS_WIN_05"
+                    name="Win 300 Fortress battles"
+                    id="T8_SILVERBAG_NONTRADABLE"
+                    title="Elder's Bag of Silver (x3)"
                   />
                 </tbody>
               </Table>
@@ -7142,7 +7340,7 @@ const Journal = ({
                     entryID="JOURNAL_GUILD_DISSARRAY_02"
                     name="Get a Level 10 Disarray debuff"
                     id="UNIQUE_UNLOCK_SKIN_ARMORED_HORSE_T5_GUILD_NON_TRADABLE"
-                    title="Armored Horse Skin: Expert's Guild Warhorse"
+                    title="Armored Horse Skin: Expert's Heraldic Warhorse"
                   />
                   <Entry
                     entryID="JOURNAL_GUILD_ZERGKILL_03"
@@ -9568,7 +9766,7 @@ const Journal = ({
                   />
                   <Entry
                     entryID="JOURNAL_CREATURES_MORGANA_KILL_3000"
-                    name="Defeatl 3,000 Disciples of Morgana"
+                    name="Defeat 3,000 Disciples of Morgana"
                     id="T4_CAPEITEM_MORGANA_BP"
                     title="Adept's Morgana Crest"
                   />
