@@ -476,8 +476,8 @@ const Journal = ({
                   <Entry
                     entryID="JOURNAL_PVE_RANDOMDUNGEONS_FINISH_SOLO_ALLFACTIONS"
                     name="Finish a Solo Dungeon of every Faction"
-                    id="T5_SILVERBAG_NONTRADABLE"
-                    title="Expert's Bag of Silver"
+                    id="T4_SILVERBAG_NONTRADABLE"
+                    title="Adept's Bag of Silver"
                   />
                   <Entry
                     entryID="SA_PVE_RANDOMDUNGEON_LOOTCHEST_SOLO_01"
@@ -494,14 +494,14 @@ const Journal = ({
                   <Entry
                     entryID="JOURNAL_PVE_RANDOMDUNGEONS_FINISH_FROM_MAP_01"
                     name="Finish 3 Solo Dungeons with a Map"
-                    id="T6_SILVERBAG_NONTRADABLE"
-                    title="Master's Bag of Silver"
+                    id="T5_SILVERBAG_NONTRADABLE"
+                    title="Expert's Bag of Silver"
                   />
                   <Entry
                     entryID="JOURNAL_PVE_RANDOMDUNGEONS_FINISH_ENCHANTED_NO_MAP"
                     name="Finish an enchanted Solo Dungeon without using a map"
-                    id="T6_SILVERBAG_NONTRADABLE"
-                    title="Master's Bag of Silver"
+                    id="T5_SILVERBAG_NONTRADABLE"
+                    title="Expert's Bag of Silver"
                   />
                   <Entry
                     entryID="JOURNAL_PVE_RANDOMDUNGEONS_LOOTCHEST_SOLO_02"
@@ -512,14 +512,14 @@ const Journal = ({
                   <Entry
                     entryID="JOURNAL_PVE_RANDOMDUNGEONS_FINISH_DIFFICULTY_02"
                     name="Finish an Enchantment Level 2 Solo Dungeon"
-                    id="T5_SILVERBAG_NONTRADABLE"
-                    title="Expert's Bag of Silver"
+                    id="T5_SKILLBOOK_NONTRADABLE"
+                    title="Expert's Tome of Insight"
                   />
                   <Entry
                     entryID="JOURNAL_PVE_RANDOMDUNGEONS_FINISH_DIFFICULTY_03"
                     name="Finish an Enchantment Level 3 Solo Dungeon"
-                    id="T5_SILVERBAG_NONTRADABLE"
-                    title="Expert's Bag of Silver"
+                    id="T6_SKILLBOOK_NONTRADABLE"
+                    title="Master's Tome of Insight"
                   />
                   <Entry
                     entryID="JOURNAL_PVE_RANDOMDUNGEONS_FINISH_SOLO_T6"
@@ -566,8 +566,8 @@ const Journal = ({
                   <Entry
                     entryID="SA_PVE_RANDOMDUNGEON_LOOTCHEST_SOLO_02"
                     name="Unlock 100 chests in Solo Dungeons"
-                    id="T7_SILVERBAG_NONTRADABLE"
-                    title="Grandmaster's Bag of Silver"
+                    id="T6_SILVERBAG_NONTRADABLE"
+                    title="Master's Bag of Silver"
                   />
                   <Entry
                     entryID="JOURNAL_PVE_RANDOMDUNGEONS_FINISH_SOLO_T6_WITH_T3_EQUIP"
@@ -590,26 +590,26 @@ const Journal = ({
                   <Entry
                     entryID="JOURNAL_PVE_RANDOMDUNGEONS_FINISH_SOLO_01"
                     name="Finish 30 Solo Dungeons"
-                    id="T8_SILVERBAG_NONTRADABLE"
-                    title="Elder's Bag of Silver"
+                    id="T6_SILVERBAG_NONTRADABLE"
+                    title="Master's Bag of Silver"
                   />
                   <Entry
                     entryID="JOURNAL_PVE_RANDOMDUNGEONS_FINISH_SOLO_02"
                     name="Finish 100 Solo Dungeons"
-                    id="T8_SILVERBAG_NONTRADABLE"
-                    title="Elder's Bag of Silver (x2)"
+                    id="T7_SILVERBAG_NONTRADABLE"
+                    title="Grandmaster's Bag of Silver"
                   />
                   <Entry
                     entryID="JOURNAL_PVE_RANDOMDUNGEONS_FINISH_SOLO_03"
                     name="Finish 300 Solo Dungeons"
                     id="T8_SILVERBAG_NONTRADABLE"
-                    title="Elder's Bag of Silver (x9)"
+                    title="Elder's Bag of Silver (x2)"
                   />
                   <Entry
                     entryID="JOURNAL_PVE_RANDOMDUNGEONS_FINISH_SOLO_04"
                     name="Finish 600 Solo Dungeons"
                     id="T8_SILVERBAG_NONTRADABLE"
-                    title="Elder's Bag of Silver (x12)"
+                    title="Elder's Bag of Silver (x5)"
                   />
                   <Entry
                     entryID="SA_PVE_RANDOMDUNGEON_ENTERED_02"
@@ -692,8 +692,8 @@ const Journal = ({
                   <Entry
                     entryID="JOURNAL_PVE_ROAMINGMOBS_KILL_T6_MOBS_01"
                     name="Defeat 120 T6 Roaming Mobs"
-                    id="T5_SILVERBAG_NONTRADABLE"
-                    title="Expert's Bag of Silver"
+                    id="T4_SILVERBAG_NONTRADABLE"
+                    title="Adept's Bag of Silver"
                   />
                   <Entry
                     entryID="JOURNAL_PVE_ROAMINGMOBS_KILL_T7_MOBS_01"
@@ -722,14 +722,14 @@ const Journal = ({
                   <Entry
                     entryID="JOURNAL_PVE_ROAMINGMOBS_KILL_MOBS_CHAMPIONS_02"
                     name="Defeat 100 Roaming Mob Champions"
-                    id="T6_SILVERBAG_NONTRADABLE"
-                    title="Master's Bag of Silver"
+                    id="T5_SILVERBAG_NONTRADABLE"
+                    title="Expert's Bag of Silver"
                   />
                   <Entry
                     entryID="JOURNAL_PVE_ROAMINGMOBS_KILL_MOBS_CHAMPIONS_03"
                     name="Defeat 300 Roaming Mob Champions"
-                    id="T8_SILVERBAG_NONTRADABLE"
-                    title="Elder's Bag of Silver"
+                    id="T6_SKILLBOOK_NONTRADABLE"
+                    title="Master's Tome of Insight"
                   />
                   <Entry
                     entryID="JOURNAL_PVE_ROAMINGMOBS_KILL_MOBS_CHAMPIONS_04"
@@ -789,7 +789,7 @@ const Journal = ({
                     entryID="JOURNAL_PVE_ROAMINGMOBS_KILL_MOBS_BOSSES_04"
                     name="Defeat 100 Roaming Mob Bosses"
                     id="T8_SILVERBAG_NONTRADABLE"
-                    title="Elder's Bag of Silver (x5)"
+                    title="Elder's Bag of Silver"
                   />
                   <Entry
                     entryID="JOURNAL_PVE_ROAMINGMOBS_GAIN_MOBFAME_01"
@@ -831,7 +831,7 @@ const Journal = ({
                     entryID="JOURNAL_PVE_ROAMINGMOBS_GAIN_MOBFAME_07"
                     name="Gain 100 million Fame from Roaming Mobs"
                     id="T8_SILVERBAG_NONTRADABLE"
-                    title="Elder's Bag of Silver (x10)"
+                    title="Elder's Bag of Silver (x2)"
                   />
                 </tbody>
               </Table>
@@ -872,14 +872,14 @@ const Journal = ({
                   <Entry
                     entryID="JOURNAL_PVE_STATICDUNGEONS_KILL_T7_MOBS_200"
                     name="Defeat 200 mobs in a T7 Static Dungeon"
-                    id="T7_SILVERBAG_NONTRADABLE"
-                    title="Grandmaster's Bag of Silver"
+                    id="T6_SILVERBAG_NONTRADABLE"
+                    title="Master's Bag of Silver"
                   />
                   <Entry
                     entryID="JOURNAL_PVE_STATICDUNGEONS_KILL_T8_MOBS_300"
                     name="Defeat 300 mobs in a T8 Static Dungeon"
-                    id="T8_SILVERBAG_NONTRADABLE"
-                    title="Elder's Bag of Silver"
+                    id="T7_SILVERBAG_NONTRADABLE"
+                    title="Grandmaster's Bag of Silver"
                   />
                   <Entry
                     entryID="SA_EXPLORATION_STATIC_DUNGEON_EVENT"
@@ -920,14 +920,14 @@ const Journal = ({
                   <Entry
                     entryID="JOURNAL_PVE_STATICDUNGEONS_GAIN_MOBFAME_04"
                     name="Gain 30 million Fame in Static Dungeons"
-                    id="T7_SILVERBAG_NONTRADABLE"
-                    title="Grandmaster's Bag of Silver (x5)"
+                    id="T8_SILVERBAG_NONTRADABLE"
+                    title="Elder's Bag of Silver"
                   />
                   <Entry
                     entryID="JOURNAL_PVE_STATICDUNGEONS_GAIN_MOBFAME_05"
                     name="Gain 100 million Fame in Static Dungeons"
                     id="T8_SILVERBAG_NONTRADABLE"
-                    title="Elder's Bag of Silver (x5)"
+                    title="Elder's Bag of Silver (x3)"
                   />
                   <Entry
                     entryID="JOURNAL_PVE_STATICDUNGEONS_KILL_MOBS_CHAMPIONS_01"
@@ -963,7 +963,7 @@ const Journal = ({
                     entryID="JOURNAL_PVE_STATICDUNGEONS_KILL_MOBS_MINIBOSSES_03"
                     name="Kill 300 Mini Bosses in Static Dungeons"
                     id="T8_SILVERBAG_NONTRADABLE"
-                    title="Elder's Bag of Silver (x10)"
+                    title="Elder's Bag of Silver (x3)"
                   />
                   <Entry
                     entryID="JOURNAL_PVE_STATICDUNGEONS_KILL_MOBS_BOSSES_01"
@@ -981,7 +981,7 @@ const Journal = ({
                     entryID="JOURNAL_PVE_STATICDUNGEONS_KILL_MOBS_BOSSES_03"
                     name="Kill 100 Bosses in Static Dungeons"
                     id="T8_SILVERBAG_NONTRADABLE"
-                    title="Elder's Bag of Silver (x15)"
+                    title="Elder's Bag of Silver (x5)"
                   />
                 </tbody>
               </Table>
@@ -1064,8 +1064,8 @@ const Journal = ({
                   <Entry
                     entryID="JOURNAL_PVE_MAPSHRINEDUNGEONS_FINISH_SOLO_03"
                     name="Finish 15 Boss Lairs"
-                    id="T6_SILVERBAG_NONTRADABLE"
-                    title="Master's Bag of Silver"
+                    id="T5_SILVERBAG_NONTRADABLE"
+                    title="Expert's Bag of Silver"
                   />
                   <Entry
                     entryID="JOURNAL_PVE_DYNAMICCAMPS_PERSONALCHEST_SMALL_06"
@@ -1130,8 +1130,8 @@ const Journal = ({
                   <Entry
                     entryID="JOURNAL_PVE_DYNAMICCAMPS_PERSONALCHEST_MEDIUM_06"
                     name="Unlock 5 open world Group Camp Caches in the Outlands"
-                    id="T6_SILVERBAG_NONTRADABLE"
-                    title="Master's Bag of Silver"
+                    id="T5_SILVERBAG_NONTRADABLE"
+                    title="Expert's Bag of Silver"
                   />
                   <Entry
                     entryID="JOURNAL_PVE_MAPSHRINEDUNGEONS_FINISH_GROUP_04"
@@ -1167,7 +1167,7 @@ const Journal = ({
                     entryID="JOURNAL_PVE_MAPSHRINEDUNGEONS_FINISH_SOLO_07"
                     name="Finish 300 Boss Lairs"
                     id="T8_SILVERBAG_NONTRADABLE"
-                    title="Elder's Bag of Silver (x3)"
+                    title="Elder's Bag of Silver"
                   />
                   <Entry
                     entryID="JOURNAL_PVE_DYNAMICCAMPS_PERSONALCHEST_MEDIUM_07"
@@ -1179,7 +1179,7 @@ const Journal = ({
                     entryID="JOURNAL_PVE_DYNAMICCAMPS_PERSONALCHEST_MEDIUM_08"
                     name="Unlock 100 open world Group Camp Caches"
                     id="T8_SILVERBAG_NONTRADABLE"
-                    title="Elder's Bag of Silver (x5)"
+                    title="Elder's Bag of Silver (x3)"
                   />
                   <Entry
                     entryID="JOURNAL_PVE_DYNAMICCAMPS_PERSONALCHEST_MEDIUM_09"
@@ -1197,7 +1197,7 @@ const Journal = ({
                     entryID="JOURNAL_PVE_MAPSHRINEDUNGEONS_FINISH_GROUP_06"
                     name="Finish 100 Group Boss Lairs"
                     id="T8_SILVERBAG_NONTRADABLE"
-                    title="Elder's Bag of Silver (x10)"
+                    title="Elder's Bag of Silver (x5)"
                   />
                 </tbody>
               </Table>
@@ -1226,8 +1226,8 @@ const Journal = ({
                   <Entry
                     entryID="JOURNAL_PVE_RANDOMDUNGEONS_FINISH_VETERAN_DIFFICULTY_01"
                     name="Finish 2 Enchantment Level 1 Group Dungeons"
-                    id="T6_SILVERBAG_NONTRADABLE"
-                    title="Master's Bag of Silver"
+                    id="T5_SILVERBAG_NONTRADABLE"
+                    title="Expert's Bag of Silver"
                   />
                   <Entry
                     entryID="JOURNAL_PVE_RANDOMDUNGEONS_FINISH_VETERAN_DIFFICULTY_02"
@@ -1238,8 +1238,8 @@ const Journal = ({
                   <Entry
                     entryID="JOURNAL_PVE_RANDOMDUNGEONS_FINISH_VETERAN_DIFFICULTY_03"
                     name="Finish 5 Enchantment Level 3 Group Dungeons"
-                    id="T7_SILVERBAG_NONTRADABLE"
-                    title="Grandmaster's Bag of Silver"
+                    id="T6_SILVERBAG_NONTRADABLE"
+                    title="Master's Bag of Silver"
                   />
                   <Entry
                     entryID="JOURNAL_PVE_RANDOMDUNGEONS_FINISH_VETERAN_T6"
@@ -1274,8 +1274,8 @@ const Journal = ({
                   <Entry
                     entryID="SA_PVE_RANDOMDUNGEON_LOOTCHEST_GROUP_01"
                     name="Unlock 10 chests in Group Dungeons"
-                    id="T5_SILVERBAG_NONTRADABLE"
-                    title="Expert's Bag of Silver"
+                    id="T4_SILVERBAG_NONTRADABLE"
+                    title="Adept's Bag of Silver"
                   />
                   <Entry
                     entryID="JOURNAL_PVE_RANDOMDUNGEONS_LOOTCHEST_GROUP_30"
@@ -1286,14 +1286,14 @@ const Journal = ({
                   <Entry
                     entryID="SA_PVE_RANDOMDUNGEON_LOOTCHEST_GROUP_02"
                     name="Unlock 100 chests in Group Dungeons"
-                    id="T7_SILVERBAG_NONTRADABLE"
-                    title="Grandmaster's Bag of Silver"
+                    id="T6_SILVERBAG_NONTRADABLE"
+                    title="Master's Bag of Silver"
                   />
                   <Entry
                     entryID="JOURNAL_PVE_RANDOMDUNGEONS_LOOTCHEST_GROUP_500"
                     name="Unlock 500 chests in Group Dungeons"
-                    id="T8_SILVERBAG_NONTRADABLE"
-                    title="Elder's Bag of Silver"
+                    id="T7_SILVERBAG_NONTRADABLE"
+                    title="Grandmaster's Bag of Silver"
                   />
                   <Entry
                     entryID="JOURNAL_PVE_RANDOMDUNGEONS_VETERAN_FINISH_01"
@@ -1311,25 +1311,25 @@ const Journal = ({
                     entryID="JOURNAL_PVE_RANDOMDUNGEONS_VETERAN_FINISH_80"
                     name="Finish 80 Group Dungeons"
                     id="T8_SILVERBAG_NONTRADABLE"
-                    title="Elder's Bag of Silver (x2)"
+                    title="Elder's Bag of Silver"
                   />
                   <Entry
                     entryID="JOURNAL_PVE_RANDOMDUNGEONS_VETERAN_FINISH_150"
                     name="Finish 150 Group Dungeons"
                     id="T8_SILVERBAG_NONTRADABLE"
-                    title="Elder's Bag of Silver (x5)"
+                    title="Elder's Bag of Silver (x2)"
                   />
                   <Entry
                     entryID="JOURNAL_PVE_RANDOMDUNGEONS_VETERAN_FINISH_300"
                     name="Finish 300 Group Dungeons"
                     id="T8_SILVERBAG_NONTRADABLE"
-                    title="Elder's Bag of Silver (x10)"
+                    title="Elder's Bag of Silver (x5)"
                   />
                   <Entry
                     entryID="JOURNAL_PVE_RANDOMDUNGEONS_VETERAN_FINISH_500"
                     name="Finish 500 Group Dungeons"
                     id="T8_SILVERBAG_NONTRADABLE"
-                    title="Elder's Bag of Silver (x15)"
+                    title="Elder's Bag of Silver (x10)"
                   />
                 </tbody>
               </Table>
@@ -1454,8 +1454,8 @@ const Journal = ({
                         </span>
                       </>
                     }
-                    id="T7_SILVERBAG_NONTRADABLE"
-                    title="Grandmaster's Bag of Silver (x5)"
+                    id="T8_SILVERBAG_NONTRADABLE"
+                    title="Elder's Bag of Silver"
                   />
                   <Entry
                     entryID="JOURNAL_PVE_TRACKING_KILL_T8_QUARRY_MOBS_GROUP_1"
@@ -1490,14 +1490,14 @@ const Journal = ({
                   <Entry
                     entryID="JOURNAL_PVE_TRACKING_FINISH_HUNT_01"
                     name="Finish 10 hunts"
-                    id="T7_SILVERBAG_NONTRADABLE"
-                    title="Grandmaster's Bag of Silver"
+                    id="T6_SILVERBAG_NONTRADABLE"
+                    title="Master's Bag of Silver"
                   />
                   <Entry
                     entryID="JOURNAL_PVE_TRACKING_FINISH_HUNT_02"
                     name="Finish 20 hunts"
-                    id="T8_SILVERBAG_NONTRADABLE"
-                    title="Elder's Bag of Silver"
+                    id="T7_SILVERBAG_NONTRADABLE"
+                    title="Grandmaster's Bag of Silver"
                   />
                   <Entry
                     entryID="JOURNAL_PVE_TRACKING_FINISH_HUNT_03"
@@ -1515,13 +1515,13 @@ const Journal = ({
                     entryID="JOURNAL_PVE_TRACKING_FINISH_HUNT_05"
                     name="Finish 200 hunts"
                     id="T8_SILVERBAG_NONTRADABLE"
-                    title="Elder's Bag of Silver (x8)"
+                    title="Elder's Bag of Silver (x3)"
                   />
                   <Entry
                     entryID="JOURNAL_PVE_TRACKING_FINISH_HUNT_06"
                     name="Finish 500 hunts"
                     id="T8_SILVERBAG_NONTRADABLE"
-                    title="Elder's Bag of Silver (x15)"
+                    title="Elder's Bag of Silver (x10)"
                   />
                 </tbody>
               </Table>
@@ -1611,7 +1611,7 @@ const Journal = ({
                     entryID="JOURNAL_PVE_WORLDBOSS_KILL_HOMEBASE_MOBS_03"
                     name="Defeat 1,000 Elite mobs in a World Boss Area"
                     id="T8_SILVERBAG_NONTRADABLE"
-                    title="Elder's Bag of Silver (x5)"
+                    title="Elder's Bag of Silver (x2)"
                   />
                   <Entry
                     entryID="JOURNAL_PVE_WORLDBOSS_KILL_T8_WORLDBOSSES_1"
@@ -1655,25 +1655,25 @@ const Journal = ({
                     entryID="JOURNAL_PVE_WORLDBOSS_KILL_HOMEBASE_MINIBOSSES_05"
                     name="Defeat 200 Mini Bosses in World Boss Areas"
                     id="T8_SILVERBAG_NONTRADABLE"
-                    title="Elder's Bag of Silver (x10)"
+                    title="Elder's Bag of Silver (x5)"
                   />
                   <Entry
                     entryID="JOURNAL_PVE_WORLDBOSS_KILL_HOMEBASE_BOSSES_04"
                     name="Defeat 50 Bosses in World Boss Areas"
                     id="T8_SILVERBAG_NONTRADABLE"
-                    title="Elder's Bag of Silver (x5)"
+                    title="Elder's Bag of Silver (x2)"
                   />
                   <Entry
                     entryID="JOURNAL_PVE_WORLDBOSS_KILL_WORLDBOSSES_10"
                     name="Defeat 10 World Bosses"
                     id="T8_SILVERBAG_NONTRADABLE"
-                    title="Elder's Bag of Silver (x10)"
+                    title="Elder's Bag of Silver (x5)"
                   />
                   <Entry
                     entryID="JOURNAL_PVE_WORLDBOSS_KILL_WORLDBOSSES_30"
                     name="Defeat 30 World Bosses"
                     id="T8_SILVERBAG_NONTRADABLE"
-                    title="Elder's Bag of Silver (x20)"
+                    title="Elder's Bag of Silver (x10)"
                   />
                 </tbody>
               </Table>
@@ -1760,8 +1760,8 @@ const Journal = ({
                   <Entry
                     entryID="JOURNAL_PVE_RANDOMDUNGEONS_CLEAR_01"
                     name="Finish 5 Avalonian Dungeons"
-                    id="T8_SILVERBAG_NONTRADABLE"
-                    title="Elder's Bag of Silver"
+                    id="T7_SILVERBAG_NONTRADABLE"
+                    title="Grandmaster's Bag of Silver"
                   />
                   <Entry
                     entryID="JOURNAL_PVE_RANDOMDUNGEONS_CLEAR_02"
@@ -1773,7 +1773,7 @@ const Journal = ({
                     entryID="JOURNAL_PVE_RANDOMDUNGEONS_CLEAR_03"
                     name="Finish 20 Avalonian Dungeons"
                     id="T8_SILVERBAG_NONTRADABLE"
-                    title="Elder's Bag of Silver (x5)"
+                    title="Elder's Bag of Silver (x2)"
                   />
                   <Entry
                     entryID="JOURNAL_PVE_RANDOMDUNGEONS_CLEAR_04"
@@ -1785,13 +1785,13 @@ const Journal = ({
                     entryID="JOURNAL_PVE_RANDOMDUNGEONS_CLEAR_05"
                     name="Finish 60 Avalonian Dungeons"
                     id="T8_SILVERBAG_NONTRADABLE"
-                    title="Elder's Bag of Silver (x10)"
+                    title="Elder's Bag of Silver (x5)"
                   />
                   <Entry
                     entryID="JOURNAL_PVE_RANDOMDUNGEONS_CLEAR_06"
                     name="Finish 100 Avalonian Dungeons"
                     id="T8_SILVERBAG_NONTRADABLE"
-                    title="Elder's Bag of Silver (x15)"
+                    title="Elder's Bag of Silver (x10)"
                   />
                   <Entry
                     entryID="SA_PVE_RANDOMDUNGEON_LOOTCHEST_ELITE_01"
@@ -1815,7 +1815,7 @@ const Journal = ({
                     entryID="SA_PVE_RANDOMDUNGEON_LOOTCHEST_ELITE_02"
                     name="Unlock 100 chests in Avalonian Dungeons"
                     id="T8_SILVERBAG_NONTRADABLE"
-                    title="Elder's Bag of Silver (x10)"
+                    title="Elder's Bag of Silver (x3)"
                   />
                   <Entry
                     entryID="JOURNAL_PVE_RANDOMDUNGEONS_ELITE_LOOTCHEST_LEGENDARY"
@@ -1827,13 +1827,13 @@ const Journal = ({
                     entryID="JOURNAL_PVE_RANDOMDUNGEONS_ELITE_LOOTCHEST_03"
                     name="Unlock 160 chests in Avalonian Dungeons"
                     id="T8_SILVERBAG_NONTRADABLE"
-                    title="Elder's Bag of Silver (x15)"
+                    title="Elder's Bag of Silver (x5)"
                   />
                   <Entry
                     entryID="JOURNAL_PVE_RANDOMDUNGEONS_ELITE_LOOTCHEST_04"
                     name="Unlock 300 chests in Avalonian Dungeons"
                     id="T8_SILVERBAG_NONTRADABLE"
-                    title="Elder's Bag of Silver (x20)"
+                    title="Elder's Bag of Silver (x10)"
                   />
                 </tbody>
               </Table>
@@ -2381,7 +2381,7 @@ const Journal = ({
                   />
                   <Entry
                     entryID="JOURNAL_ECONOMY_CRAFTING_E3_01"
-                    name="Craft 50 Epic items"
+                    name="Craft 50 Exceptional items"
                     id="T5_SKILLBOOK_NONTRADABLE"
                     title="Expert's Tome of Insight"
                   />
@@ -2778,8 +2778,8 @@ const Journal = ({
                   <Entry
                     entryID="JOURNAL_GATHERING_RESOURCES_ANY_TYPE_T3"
                     name="Gather 120 Tier 3 resources"
-                    id="T4_SILVERBAG_NONTRADABLE"
-                    title="Adept's Bag of Silver"
+                    id="T3_SILVERBAG_NONTRADABLE"
+                    title="Journeyman's Bag of Silver"
                   />
                   <Entry
                     entryID="JOURNAL_GATHERING_RESOURCES_FAME_01"
@@ -2940,26 +2940,26 @@ const Journal = ({
                   <Entry
                     entryID="JOURNAL_GATHERING_RESOURCES_FAME_05"
                     name="Gather resources worth 500,000 Fame"
-                    id="T7_SILVERBAG_NONTRADABLE"
-                    title="Grandmaster's Bag of Silver"
+                    id="T5_SILVERBAG_NONTRADABLE"
+                    title="Expert's Bag of Silver"
                   />
                   <Entry
                     entryID="SA_GATHERING_FAME_03"
                     name="Gather resources worth a million Fame"
-                    id="T8_SILVERBAG_NONTRADABLE"
-                    title="Elder's Bag of Silver"
+                    id="T6_SILVERBAG_NONTRADABLE"
+                    title="Master's Bag of Silver"
                   />
                   <Entry
                     entryID="JOURNAL_GATHERING_RESOURCES_FAME_06"
                     name="Gather resources worth 3 million Fame"
-                    id="T8_SILVERBAG_NONTRADABLE"
-                    title="Elder's Bag of Silver (x2)"
+                    id="T4_LEARNINGPOINTS_NONTRADABLE"
+                    title="Adept's Tome of Learning"
                   />
                   <Entry
                     entryID="JOURNAL_GATHERING_RESOURCES_FAME_07"
                     name="Gather resources worth 10 million Fame"
                     id="T8_SILVERBAG_NONTRADABLE"
-                    title="Elder's Bag of Silver (x5)"
+                    title="Elder's Bag of Silver"
                   />
                   <Entry
                     entryID="SA_GATHERING_TERRITORY_RAID"
@@ -3197,7 +3197,7 @@ const Journal = ({
                     entryID="JOURNAL_GATHERING_FISHING_CATCH_6"
                     name="Catch 28 types of fish"
                     id="T8_SILVERBAG_NONTRADABLE"
-                    title="Elder's Bag of Silver (x2)"
+                    title="Elder's Bag of Silver"
                   />
                   <Entry
                     entryID="JOURNAL_GATHERING_FISHING_CATCH_SHARK"
@@ -3229,7 +3229,7 @@ const Journal = ({
                       </>
                     }
                     id="T8_SILVERBAG_NONTRADABLE"
-                    title="Elder's Bag of Silver (x5)"
+                    title="Elder's Bag of Silver (x3)"
                   />
                   <Entry
                     entryID="JOURNAL_GATHERING_FISHING_FAME_03"
@@ -3893,8 +3893,8 @@ const Journal = ({
                   <Entry
                     entryID="JOURNAL_EXPLORATION_TRAVEL_HIDDEN_TREASURE_04"
                     name="Find 20 Hidden Treasures in the open world"
-                    id="T6_SILVERBAG_NONTRADABLE"
-                    title="Master's Bag of Silver"
+                    id="T5_SILVERBAG_NONTRADABLE"
+                    title="Expert's Bag of Silver"
                   />
                   <Entry
                     entryID="JOURNAL_EXPLORATION_TRAVEL_RIDE_BRECILIEN_MOUNT"
@@ -3911,8 +3911,8 @@ const Journal = ({
                   <Entry
                     entryID="JOURNAL_EXPLORATION_TRAVEL_HIDDEN_TREASURE_05"
                     name="Find 40 Hidden Treasures in the open world"
-                    id="T7_SILVERBAG_NONTRADABLE"
-                    title="Grandmaster's Bag of Silver"
+                    id="T6_SILVERBAG_NONTRADABLE"
+                    title="Master's Bag of Silver"
                   />
                   <Entry
                     entryID="JOURNAL_EXPLORATION_TRAVEL_RIDE_FW_ELITE_MOUNT"
@@ -3929,8 +3929,8 @@ const Journal = ({
                   <Entry
                     entryID="JOURNAL_EXPLORATION_TRAVEL_HIDDEN_TREASURE_06"
                     name="Find 65 Hidden Treasures in the open world"
-                    id="T7_SILVERBAG_NONTRADABLE"
-                    title="Grandmaster's Bag of Silver"
+                    id="T6_SILVERBAG_NONTRADABLE"
+                    title="Master's Bag of Silver"
                   />
                   <Entry
                     entryID="JOURNAL_EXPLORATION_TRAVEL_RIDE_BATTLE_MOUNT"
@@ -3941,14 +3941,14 @@ const Journal = ({
                   <Entry
                     entryID="JOURNAL_EXPLORATION_TRAVEL_OPENWORLD_COFFERS_06"
                     name="Find 65 Coffer Chests in the open world"
-                    id="T8_SILVERBAG_NONTRADABLE"
-                    title="Elder's Bag of Silver"
+                    id="T7_SILVERBAG_NONTRADABLE"
+                    title="Grandmaster's Bag of Silver"
                   />
                   <Entry
                     entryID="JOURNAL_EXPLORATION_TRAVEL_HIDDEN_TREASURE_07"
                     name="Find 100 Hidden Treasures in the open world"
-                    id="T8_SILVERBAG_NONTRADABLE"
-                    title="Elder's Bag of Silver (x2)"
+                    id="T7_SILVERBAG_NONTRADABLE"
+                    title="Grandmaster's Bag of Silver"
                   />
                   <Entry
                     entryID="JOURNAL_EXPLORATION_TRAVEL_RIDE_FW_ALL"
@@ -3978,7 +3978,7 @@ const Journal = ({
                     entryID="JOURNAL_EXPLORATION_TRAVEL_HIDDEN_TREASURE_08"
                     name="Find 200 Hidden Treasures in the open world"
                     id="T8_SILVERBAG_NONTRADABLE"
-                    title="Elder's Bag of Silver (x3)"
+                    title="Elder's Bag of Silver"
                   />
                   <Entry
                     entryID="JOURNAL_EXPLORATION_TRAVEL_RIDE_MAMMOTH_TRANSPORT"
@@ -3996,7 +3996,7 @@ const Journal = ({
                     entryID="JOURNAL_EXPLORATION_TRAVEL_HIDDEN_TREASURE_09"
                     name="Find 500 Hidden Treasures in the open world"
                     id="T8_SILVERBAG_NONTRADABLE"
-                    title="Elder's Bag of Silver (x5)"
+                    title="Elder's Bag of Silver (x2)"
                   />
                   <Entry
                     entryID="JOURNAL_EXPLORATION_TRAVEL_RIDE_MAMMOTH_BATTLE"
@@ -4151,14 +4151,14 @@ const Journal = ({
                   <Entry
                     entryID="JOURNAL_EXPLORATION_REPUTATION_GOOD_01"
                     name="Reach the reputation level: Virtuous"
-                    id="T5_SILVERBAG_NONTRADABLE"
-                    title="Expert's Bag of Silver"
+                    id="T4_SILVERBAG_NONTRADABLE"
+                    title="Adept's Bag of Silver"
                   />
                   <Entry
                     entryID="JOURNAL_EXPLORATION_REPUTATION_GOOD_02"
                     name="Reach the reputation level: Noble"
-                    id="T6_SILVERBAG_NONTRADABLE"
-                    title="Master's Bag of Silver"
+                    id="T5_SILVERBAG_NONTRADABLE"
+                    title="Expert's Bag of Silver"
                   />
                   <Entry
                     entryID="SA_REPUTATION_MAX"
@@ -4205,8 +4205,8 @@ const Journal = ({
                   <Entry
                     entryID="JOURNAL_EXPLORATION_MISTS_RESCUE_WISPS_1"
                     name="Rescue 10 Wisps"
-                    id="T5_SILVERBAG_NONTRADABLE"
-                    title="Expert's Bag of Silver"
+                    id="T4_SILVERBAG_NONTRADABLE"
+                    title="Adept's Bag of Silver"
                   />
                   <Entry
                     entryID="JOURNAL_EXPLORATION_MISTS_RESCUE_CHEST_SMALL_01"
@@ -4235,14 +4235,14 @@ const Journal = ({
                   <Entry
                     entryID="JOURNAL_EXPLORATION_MISTS_CAPTURE_TREASURE_WISP"
                     name="Deliver a Weakened Wisp to a Sanctuary"
-                    id="T6_SILVERBAG_NONTRADABLE"
-                    title="Master's Bag of Silver"
+                    id="T5_SILVERBAG_NONTRADABLE"
+                    title="Expert's Bag of Silver"
                   />
                   <Entry
                     entryID="SA_EXPLORATION_MISTS_CITY_FRIENDLY"
                     name="Gain Accepted status with Brecilien"
-                    id="T5_SILVERBAG_NONTRADABLE"
-                    title="Expert's Bag of Silver"
+                    id="T4_SILVERBAG_NONTRADABLE"
+                    title="Adept's Bag of Silver"
                   />
                   <Entry
                     entryID="JOURNAL_EXPLORATION_MISTS_FAME_SOLO_BLACK_01"
@@ -4435,8 +4435,8 @@ const Journal = ({
                   <Entry
                     entryID="JOURNAL_EXPLORATION_HELL_DEN_STANDING_02"
                     name="Gain Respected Standing with the Antiquarian"
-                    id="T7_SILVERBAG_NONTRADABLE"
-                    title="Grandmaster's Bag of Silver"
+                    id="T5_SILVERBAG_NONTRADABLE"
+                    title="Expert's Bag of Silver"
                   />
                   <Entry
                     entryID="JOURNAL_EXPLORATION_HELL_DEN_STANDING_03"
@@ -4447,8 +4447,8 @@ const Journal = ({
                   <Entry
                     entryID="JOURNAL_EXPLORATION_HELL_DEN_STANDING_04"
                     name="Gain Venerated Standing with the Antiquarian"
-                    id="T8_SILVERBAG_NONTRADABLE"
-                    title="Elder's Bag of Silver (x5)"
+                    id="T4_LEARNINGPOINTS_NONTRADABLE"
+                    title="Adept's Tome of Learning"
                   />
                 </tbody>
               </Table>
@@ -4501,8 +4501,8 @@ const Journal = ({
                   <Entry
                     entryID="JOURNAL_EXPLORATION_MIGHT_GAIN_FAVOR_02"
                     name="Earn 5,000 Favor"
-                    id="T6_SILVERBAG_NONTRADABLE"
-                    title="Master's Bag of Silver"
+                    id="T5_SILVERBAG_NONTRADABLE"
+                    title="Expert's Bag of Silver"
                   />
                   <Entry
                     entryID="JOURNAL_EXPLORATION_MIGHT_GAIN_MIGHT_04"
@@ -4513,8 +4513,8 @@ const Journal = ({
                   <Entry
                     entryID="JOURNAL_EXPLORATION_MIGHT_GAIN_MIGHT_05"
                     name="Earn 100,000 Might"
-                    id="T7_SILVERBAG_NONTRADABLE"
-                    title="Grandmaster's Bag of Silver"
+                    id="T3_LEARNINGPOINTS_NONTRADABLE"
+                    title="Journeyman's Tome of Learning"
                   />
                   <Entry
                     entryID="JOURNAL_EXPLORATION_MIGHT_GAIN_MIGHT_06"
@@ -4525,8 +4525,8 @@ const Journal = ({
                   <Entry
                     entryID="JOURNAL_EXPLORATION_MIGHT_GAIN_FAVOR_03"
                     name="Earn 120,000 Favor"
-                    id="T8_SILVERBAG_NONTRADABLE"
-                    title="Elder's Bag of Silver"
+                    id="T6_SILVERBAG_NONTRADABLE"
+                    title="Master's Bag of Silver"
                   />
                   <Entry
                     entryID="JOURNAL_EXPLORATION_MIGHT_GAIN_MIGHT_07"
@@ -4537,14 +4537,14 @@ const Journal = ({
                   <Entry
                     entryID="JOURNAL_EXPLORATION_MIGHT_GAIN_MIGHT_08"
                     name="Earn 2 million Might"
-                    id="T8_SILVERBAG_NONTRADABLE"
-                    title="Elder's Bag of Silver (x2)"
+                    id="T7_SILVERBAG_NONTRADABLE"
+                    title="Grandmaster's Bag of Silver"
                   />
                   <Entry
                     entryID="JOURNAL_EXPLORATION_MIGHT_GAIN_MIGHT_09"
                     name="Earn 5 million Might"
-                    id="T8_SILVERBAG_NONTRADABLE"
-                    title="Elder's Bag of Silver (x5)"
+                    id="T4_LEARNINGPOINTS_NONTRADABLE"
+                    title="Adept's Tome of Learning"
                   />
                 </tbody>
               </Table>
@@ -4585,8 +4585,8 @@ const Journal = ({
                   <Entry
                     entryID="JOURNAL_EXPLORATION_ROADS_OF_AVALON_CHEST_MOBS_02"
                     name="Defeat 500 mobs in the Roads of Avalon"
-                    id="T6_SILVERBAG_NONTRADABLE"
-                    title="Master's Bag of Silver"
+                    id="T5_SILVERBAG_NONTRADABLE"
+                    title="Expert's Bag of Silver"
                   />
                   <Entry
                     entryID="JOURNAL_EXPLORATION_ROADS_OF_AVALON_CHEST_VETERAN_01"
@@ -4603,14 +4603,14 @@ const Journal = ({
                   <Entry
                     entryID="JOURNAL_EXPLORATION_ROADS_OF_AVALON_CHEST_SOLO_01"
                     name="Open 30 Green Chests in Roads of Avalon"
-                    id="T7_SILVERBAG_NONTRADABLE"
-                    title="Grandmaster's Bag of Silver"
+                    id="T6_SILVERBAG_NONTRADABLE"
+                    title="Master's Bag of Silver"
                   />
                   <Entry
                     entryID="JOURNAL_EXPLORATION_ROADS_OF_AVALON_CHEST_MOBS_03"
                     name="Defeat 2,000 mobs in the Roads of Avalon"
-                    id="T8_SILVERBAG_NONTRADABLE"
-                    title="Elder's Bag of Silver"
+                    id="T7_SILVERBAG_NONTRADABLE"
+                    title="Grandmaster's Bag of Silver"
                   />
                   <Entry
                     entryID="JOURNAL_EXPLORATION_ROADS_OF_AVALON_CHEST_ELITE_01"
@@ -4622,7 +4622,7 @@ const Journal = ({
                     entryID="JOURNAL_EXPLORATION_ROADS_OF_AVALON_CHEST_MOBS_04"
                     name="Defeat 5,000 mobs in the Roads of Avalon"
                     id="T8_SILVERBAG_NONTRADABLE"
-                    title="Elder's Bag of Silver (x3)"
+                    title="Elder's Bag of Silver"
                   />
                   <Entry
                     entryID="JOURNAL_EXPLORATION_ROADS_OF_AVALON_CHEST_VETERAN_02"
@@ -4633,8 +4633,8 @@ const Journal = ({
                   <Entry
                     entryID="JOURNAL_EXPLORATION_ROADS_OF_AVALON_CHEST_SOLO_02"
                     name="Open 100 Green Chests in Roads of Avalon"
-                    id="T8_SILVERBAG_NONTRADABLE"
-                    title="Elder's Bag of Silver"
+                    id="T7_SILVERBAG_NONTRADABLE"
+                    title="Grandmaster's Bag of Silver"
                   />
                   <Entry
                     entryID="JOURNAL_EXPLORATION_ROADS_OF_AVALON_CHEST_LEGENDARY_01"
@@ -4646,7 +4646,7 @@ const Journal = ({
                     entryID="JOURNAL_EXPLORATION_ROADS_OF_AVALON_CHEST_VETERAN_03"
                     name="Open 150 Blue Chests in Roads of Avalon"
                     id="T8_SILVERBAG_NONTRADABLE"
-                    title="Elder's Bag of Silver (x10)"
+                    title="Elder's Bag of Silver (x2)"
                   />
                   <Entry
                     entryID="JOURNAL_EXPLORATION_ROADS_OF_AVALON_CHEST_ELITE_LEGENDARY_01"
@@ -4658,37 +4658,37 @@ const Journal = ({
                     entryID="JOURNAL_EXPLORATION_ROADS_OF_AVALON_CHEST_ELITE_02"
                     name="Open 50 Yellow Chests in Roads of Avalon"
                     id="T8_SILVERBAG_NONTRADABLE"
-                    title="Elder's Bag of Silver (x5)"
+                    title="Elder's Bag of Silver (x2)"
                   />
                   <Entry
                     entryID="JOURNAL_EXPLORATION_ROADS_OF_AVALON_CHEST_SOLO_03"
                     name="Open 500 Green Chests in Roads of Avalon"
                     id="T8_SILVERBAG_NONTRADABLE"
-                    title="Elder's Bag of Silver (x5)"
+                    title="Elder's Bag of Silver (x3)"
                   />
                   <Entry
                     entryID="JOURNAL_EXPLORATION_ROADS_OF_AVALON_CHEST_ELITE_03"
                     name="Open 150 Yellow Chests in Roads of Avalon"
                     id="T8_SILVERBAG_NONTRADABLE"
-                    title="Elder's Bag of Silver (x10)"
+                    title="Elder's Bag of Silver (x5)"
                   />
                   <Entry
                     entryID="JOURNAL_EXPLORATION_ROADS_OF_AVALON_CHEST_VETERAN_04"
                     name="Open 500 Blue Chests in Roads of Avalon"
                     id="T8_SILVERBAG_NONTRADABLE"
-                    title="Elder's Bag of Silver (x25)"
+                    title="Elder's Bag of Silver (x10)"
                   />
                   <Entry
                     entryID="JOURNAL_EXPLORATION_ROADS_OF_AVALON_CHEST_ELITE_04"
                     name="Open 500 Yellow Chests in Roads of Avalon"
                     id="T8_SILVERBAG_NONTRADABLE"
-                    title="Elder's Bag of Silver (x15)"
+                    title="Elder's Bag of Silver (x10)"
                   />
                   <Entry
                     entryID="JOURNAL_EXPLORATION_ROADS_OF_AVALON_FAME_01"
                     name="Earn 1 million Fame in the Roads of Avalon"
-                    id="T7_SILVERBAG_NONTRADABLE"
-                    title="Grandmaster's Bag of Silver"
+                    id="T6_SILVERBAG_NONTRADABLE"
+                    title="Master's Bag of Silver"
                   />
                   <Entry
                     entryID="JOURNAL_EXPLORATION_ROADS_OF_AVALON_FAME_02"
@@ -4711,8 +4711,8 @@ const Journal = ({
                   <Entry
                     entryID="JOURNAL_EXPLORATION_ROADS_OF_AVALON_FAME_05"
                     name="Earn 100 million Fame in the Roads of Avalon"
-                    id="T8_SILVERBAG_NONTRADABLE"
-                    title="Elder's Bag of Silver (x5)"
+                    id="T4_LEARNINGPOINTS_NONTRADABLE"
+                    title="Adept's Tome of Learning"
                   />
                 </tbody>
               </Table>
@@ -4783,8 +4783,8 @@ const Journal = ({
                   <Entry
                     entryID="JOURNAL_EXPLORATION_SMUGGLERS_CAGED_SMUGGLER_03"
                     name="Free 10 Captured Smugglers"
-                    id="T6_SILVERBAG_NONTRADABLE"
-                    title="Master's Bag of Silver"
+                    id="T5_SILVERBAG_NONTRADABLE"
+                    title="Expert's Bag of Silver"
                   />
                   <Entry
                     entryID="JOURNAL_EXPLORATION_SMUGGLERS_DELIVER_TOKEN_03"
@@ -4807,8 +4807,8 @@ const Journal = ({
                   <Entry
                     entryID="JOURNAL_EXPLORATION_SMUGGLERS_CAGED_SMUGGLER_04"
                     name="Free 25 Captured Smugglers"
-                    id="T7_SILVERBAG_NONTRADABLE"
-                    title="Grandmaster's Bag of Silver"
+                    id="T6_SILVERBAG_NONTRADABLE"
+                    title="Master's Bag of Silver"
                   />
                   <Entry
                     entryID="JOURNAL_EXPLORATION_SMUGGLERS_VISIT_BLACKBANKS_05"
@@ -4819,8 +4819,8 @@ const Journal = ({
                   <Entry
                     entryID="JOURNAL_EXPLORATION_SMUGGLERS_DELIVER_TOKEN_04"
                     name="Buy 50 Rounds for the Smugglers"
-                    id="T8_SILVERBAG_NONTRADABLE"
-                    title="Elder's Bag of Silver"
+                    id="T6_SILVERBAG_NONTRADABLE"
+                    title="Master's Bag of Silver"
                   />
                   <Entry
                     entryID="JOURNAL_EXPLORATION_SMUGGLERS_DELIVER_CRATE_03"
@@ -4849,8 +4849,8 @@ const Journal = ({
                   <Entry
                     entryID="JOURNAL_EXPLORATION_SMUGGLERS_CAGED_SMUGGLER_05"
                     name="Free 65 Captured Smugglers"
-                    id="T8_SILVERBAG_NONTRADABLE"
-                    title="Elder's Bag of Silver"
+                    id="T7_SILVERBAG_NONTRADABLE"
+                    title="Grandmaster's Bag of Silver"
                   />
                   <Entry
                     entryID="JOURNAL_EXPLORATION_SMUGGLERS_DELIVER_CRATE_04"
@@ -4861,8 +4861,8 @@ const Journal = ({
                   <Entry
                     entryID="JOURNAL_EXPLORATION_SMUGGLERS_DELIVER_TOKEN_05"
                     name="Buy 180 Rounds for the Smugglers"
-                    id="T7_SILVERBAG_NONTRADABLE"
-                    title="Grandmaster's Bag of Silver"
+                    id="T6_SILVERBAG_NONTRADABLE"
+                    title="Master's Bag of Silver"
                   />
                   <Entry
                     entryID="JOURNAL_EXPLORATION_SMUGGLERS_DELIVER_CRATE_RARITY_02"
@@ -4886,13 +4886,13 @@ const Journal = ({
                     entryID="JOURNAL_EXPLORATION_SMUGGLERS_CAGED_SMUGGLER_06"
                     name="Free 150 Captured Smugglers"
                     id="T8_SILVERBAG_NONTRADABLE"
-                    title="Elder's Bag of Silver (x3)"
+                    title="Elder's Bag of Silver"
                   />
                   <Entry
                     entryID="JOURNAL_EXPLORATION_SMUGGLERS_DELIVER_TOKEN_06"
                     name="Buy 500 Rounds for the Smugglers"
                     id="T8_SILVERBAG_NONTRADABLE"
-                    title="Elder's Bag of Silver (x2)"
+                    title="Elder's Bag of Silver"
                   />
                   <Entry
                     entryID="JOURNAL_EXPLORATION_SMUGGLERS_DELIVER_CRATE_05"
@@ -4929,7 +4929,7 @@ const Journal = ({
                     entryID="JOURNAL_EXPLORATION_SMUGGLERS_DELIVER_CRATE_06"
                     name="Help deliver 300 Smuggler Crates"
                     id="T8_SILVERBAG_NONTRADABLE"
-                    title="Elder's Bag of Silver (x3)"
+                    title="Elder's Bag of Silver (x2)"
                   />
                   <Entry
                     entryID="JOURNAL_EXPLORATION_SMUGGLERS_STANDING_04"
@@ -5514,14 +5514,14 @@ const Journal = ({
                   <Entry
                     entryID="JOURNAL_PVP_HELL_DUNGEONS_SACRIFICE_SOULS_4"
                     name="Offer 50 Souls at Altars of Greed"
-                    id="T6_SILVERBAG_NONTRADABLE"
-                    title="Master's Bag of Silver"
+                    id="T5_SILVERBAG_NONTRADABLE"
+                    title="Expert's Bag of Silver"
                   />
                   <Entry
                     entryID="JOURNAL_PVP_HELL_DUNGEONS_KILL_PLAYER_03"
                     name="Defeat 50 enemy players in The Depths"
-                    id="T7_SILVERBAG_NONTRADABLE"
-                    title="Grandmaster's Bag of Silver"
+                    id="T6_SILVERBAG_NONTRADABLE"
+                    title="Master's Bag of Silver"
                   />
                   <Entry
                     entryID="JOURNAL_PVP_HELL_DUNGEONS_RESURRECT_PARTY_MEMBERS_2"
@@ -5532,8 +5532,8 @@ const Journal = ({
                   <Entry
                     entryID="JOURNAL_PVP_HELL_DUNGEONS_KILL_PLAYER_04"
                     name="Defeat 200 enemy players in The Depths"
-                    id="T8_SILVERBAG_NONTRADABLE"
-                    title="Elder's Bag of Silver"
+                    id="T7_SILVERBAG_NONTRADABLE"
+                    title="Grandmaster's Bag of Silver"
                   />
                   <Entry
                     entryID="JOURNAL_PVP_HELL_DUNGEONS_SURVIVE_LEVEL_3"
@@ -5557,13 +5557,13 @@ const Journal = ({
                     entryID="JOURNAL_PVP_HELL_DUNGEONS_KILL_PLAYER_05"
                     name="Defeat 500 enemy players in The Depths"
                     id="T8_SILVERBAG_NONTRADABLE"
-                    title="Elder's Bag of Silver (x2)"
+                    title="Elder's Bag of Silver"
                   />
                   <Entry
                     entryID="JOURNAL_PVP_HELL_DUNGEONS_KILL_PLAYER_06"
                     name="Defeat 1000 enemy players in The Depths"
                     id="T8_SILVERBAG_NONTRADABLE"
-                    title="Elder's Bag of Silver (x5)"
+                    title="Elder's Bag of Silver (x2)"
                   />
                 </tbody>
               </Table>
@@ -5628,8 +5628,8 @@ const Journal = ({
                   <Entry
                     entryID="JOURNAL_PVP_FACTION_WARFARE_RANK_02"
                     name="Reach 30,000 standing with any Faction"
-                    id="T6_SILVERBAG_NONTRADABLE"
-                    title="Master's Bag of Silver"
+                    id="T5_SILVERBAG_NONTRADABLE"
+                    title="Expert's Bag of Silver"
                   />
                   <Entry
                     entryID="JOURNAL_PVP_FACTION_WARFARE_CAPTURE_01"
@@ -5688,8 +5688,8 @@ const Journal = ({
                   <Entry
                     entryID="SA_FACTIONWARFARE_STANDING_MAX"
                     name="Achieve a standing of 330,000 with any faction"
-                    id="T8_SILVERBAG_NONTRADABLE"
-                    title="Elder's Bag of Silver"
+                    id="T7_SILVERBAG_NONTRADABLE"
+                    title="Grandmaster's Bag of Silver"
                   />
                   <Entry
                     entryID="SA_FACTIONWARFARE_KILLBOSS_ALL"
@@ -5887,26 +5887,26 @@ const Journal = ({
                   <Entry
                     entryID="JOURNAL_PVP_OPEN_WORLD_PVP_KILLFAME_BLACK_02"
                     name="Get 10 million Kill Fame in Black Zones"
-                    id="T8_SILVERBAG_NONTRADABLE"
-                    title="Elder's Bag of Silver"
+                    id="T7_SILVERBAG_NONTRADABLE"
+                    title="Grandmaster's Bag of Silver"
                   />
                   <Entry
                     entryID="JOURNAL_PVP_OPEN_WORLD_PVP_KILLFAME_STATIC_DUNGEON_02"
                     name="Get 10 million Kill Fame in Static Dungeons"
                     id="T8_SILVERBAG_NONTRADABLE"
-                    title="Elder's Bag of Silver (x5)"
+                    title="Elder's Bag of Silver (x3)"
                   />
                   <Entry
                     entryID="JOURNAL_PVP_OPEN_WORLD_PVP_KILLFAME_ROADS_02"
                     name="Get 10 million Kill Fame in the Roads of Avalon"
-                    id="T8_SILVERBAG_NONTRADABLE"
-                    title="Elder's Bag of Silver (x5)"
+                    id="T1_KILL_EMOTE_GHOST_CHARGES_NONTRADABLE"
+                    title="Ghost Victory Emote Charge (x20)"
                   />
                   <Entry
                     entryID="JOURNAL_PVP_OPEN_WORLD_PVP_KILLFAME_BLACK_03"
                     name="Get 50 million Kill Fame in Black Zones"
                     id="T8_SILVERBAG_NONTRADABLE"
-                    title="Elder's Bag of Silver (x5)"
+                    title="Elder's Bag of Silver (x2)"
                   />
                   <Entry
                     entryID="JOURNAL_PVP_OPEN_WORLD_PVP_KILLFAME_BLACK_04"
@@ -5923,20 +5923,20 @@ const Journal = ({
                   <Entry
                     entryID="JOURNAL_PVP_OPEN_WORLD_PVP_TREASURE_02"
                     name="Open 30 open-world Treasure Chests in full-loot regions"
-                    id="T7_SILVERBAG_NONTRADABLE"
-                    title="Grandmaster's Bag of Silver"
+                    id="T6_SILVERBAG_NONTRADABLE"
+                    title="Master's Bag of Silver"
                   />
                   <Entry
                     entryID="SA_EXPLORATION_TREASURE_100"
                     name="Open 100 open-world Treasure Chests"
-                    id="T8_SILVERBAG_NONTRADABLE"
-                    title="Elder's Bag of Silver"
+                    id="T7_SILVERBAG_NONTRADABLE"
+                    title="Grandmaster's Bag of Silver"
                   />
                   <Entry
                     entryID="JOURNAL_PVP_OPEN_WORLD_PVP_TREASURE_VETERAN_01"
                     name="Open 30 Medium Treasure Chests"
-                    id="T8_SILVERBAG_NONTRADABLE"
-                    title="Elder's Bag of Silver"
+                    id="T7_SILVERBAG_NONTRADABLE"
+                    title="Grandmaster's Bag of Silver"
                   />
                   <Entry
                     entryID="JOURNAL_PVP_OPEN_WORLD_PVP_TREASURE_ELITE_01"
@@ -5948,19 +5948,19 @@ const Journal = ({
                     entryID="JOURNAL_PVP_OPEN_WORLD_PVP_TREASURE_03"
                     name="Open 500 open-world Treasure Chests"
                     id="T8_SILVERBAG_NONTRADABLE"
-                    title="Elder's Bag of Silver (x5)"
+                    title="Elder's Bag of Silver (x2)"
                   />
                   <Entry
                     entryID="JOURNAL_PVP_OPEN_WORLD_PVP_TREASURE_VETERAN_02"
                     name="Open 300 Medium Treasure Chests"
                     id="T8_SILVERBAG_NONTRADABLE"
-                    title="Elder's Bag of Silver (x5)"
+                    title="Elder's Bag of Silver (x3)"
                   />
                   <Entry
                     entryID="JOURNAL_PVP_OPEN_WORLD_PVP_TREASURE_ELITE_02"
                     name="Open 100 Large Treasure Chests"
                     id="T8_SILVERBAG_NONTRADABLE"
-                    title="Elder's Bag of Silver (x5)"
+                    title="Elder's Bag of Silver (x3)"
                   />
                   <Entry
                     entryID="JOURNAL_PVP_OPEN_WORLD_PVP_TREASURE_ELITE_LEGENDARY"
@@ -6031,8 +6031,8 @@ const Journal = ({
                   <Entry
                     entryID="JOURNAL_PVP_HELL_GATES_BOSS_01"
                     name="Defeat a Boss in a Hellgate"
-                    id="T6_SILVERBAG_NONTRADABLE"
-                    title="Master's Bag of Silver"
+                    id="T5_SILVERBAG_NONTRADABLE"
+                    title="Expert's Bag of Silver"
                   />
                   <Entry
                     entryID="JOURNAL_PVP_HELL_GATES_2V2_INFAMY_02"
@@ -6079,14 +6079,14 @@ const Journal = ({
                   <Entry
                     entryID="JOURNAL_PVP_HELL_GATES_5V5_INFAMY_01"
                     name="Gain 20,000 Infamy in 5v5 Hellgates"
-                    id="T7_SILVERBAG_NONTRADABLE"
-                    title="Grandmaster's Bag of Silver"
+                    id="T6_SILVERBAG_NONTRADABLE"
+                    title="Master's Bag of Silver"
                   />
                   <Entry
                     entryID="JOURNAL_PVP_HELL_GATES_KNOCKDOWN_03"
                     name="Knock down 200 players in Hellgates"
-                    id="T8_SILVERBAG_NONTRADABLE"
-                    title="Elder's Bag of Silver"
+                    id="T7_SILVERBAG_NONTRADABLE"
+                    title="Grandmaster's Bag of Silver"
                   />
                   <Entry
                     entryID="JOURNAL_PVP_HELL_GATES_5V5_INFAMY_02"
@@ -6098,7 +6098,7 @@ const Journal = ({
                     entryID="JOURNAL_PVP_HELL_GATES_KILL_PLAYER_02"
                     name="Kill 20 players in full-loot Hellgates"
                     id="T7_SILVERBAG_NONTRADABLE"
-                    title="Grandmaster's Bag of Silver (x5)"
+                    title="Grandmaster's Bag of Silver"
                   />
                   <Entry
                     entryID="SA_EXPLORATION_CHAIN_HELLGATE_03"
@@ -6110,25 +6110,25 @@ const Journal = ({
                     entryID="JOURNAL_PVP_HELL_GATES_KILL_PLAYER_03"
                     name="Kill 50 players in full-loot Hellgates"
                     id="T8_SILVERBAG_NONTRADABLE"
-                    title="Elder's Bag of Silver (x5)"
+                    title="Elder's Bag of Silver"
                   />
                   <Entry
                     entryID="JOURNAL_PVP_HELL_GATES_KILL_PLAYER_04"
                     name="Kill 200 players in full-loot Hellgates"
                     id="T8_SILVERBAG_NONTRADABLE"
-                    title="Elder's Bag of Silver (x10)"
+                    title="Elder's Bag of Silver (x3)"
                   />
                   <Entry
                     entryID="JOURNAL_PVP_HELL_GATES_KILL_PLAYER_05"
                     name="Kill 500 players in full-loot Hellgates"
                     id="T8_SILVERBAG_NONTRADABLE"
-                    title="Elder's Bag of Silver (x20)"
+                    title="Elder's Bag of Silver (x10)"
                   />
                   <Entry
                     entryID="JOURNAL_PVP_HELL_GATES_KILL_PLAYER_06"
                     name="Kill 1,000 players in full-loot Helgates"
                     id="T8_SILVERBAG_NONTRADABLE"
-                    title="Elder's Bag of Silver (x40)"
+                    title="Elder's Bag of Silver (x20)"
                   />
                   <Entry
                     entryID="SA_COLLECTION_HELLGATE_01"
@@ -6140,7 +6140,7 @@ const Journal = ({
                     entryID="SA_COLLECTION_HELLGATE_02"
                     name="Gain 250,000 Infamy in 2v2 Hellgates"
                     id="T8_SILVERBAG_NONTRADABLE"
-                    title="Elder's Bag of Silver (x20)"
+                    title="Elder's Bag of Silver (x10)"
                   />
                   <Entry
                     entryID="JOURNAL_PVP_HELL_GATES_5V5_INFAMY_03"
@@ -6152,7 +6152,7 @@ const Journal = ({
                     entryID="JOURNAL_PVP_HELL_GATES_5V5_INFAMY_04"
                     name="Gain 250,000 Infamy in 5v5 Hellgates"
                     id="T8_SILVERBAG_NONTRADABLE"
-                    title="Elder's Bag of Silver (x25)"
+                    title="Elder's Bag of Silver (x15)"
                   />
                 </tbody>
               </Table>
@@ -6607,8 +6607,8 @@ const Journal = ({
                   <Entry
                     entryID="JOURNAL_GUILD_GUILD_CHALLENGE_POINTS_02"
                     name="Contribute 40,000 Challenge Points to the Guild Challenge"
-                    id="T5_SILVERBAG_NONTRADABLE"
-                    title="Expert's Bag of Silver"
+                    id="T4_SILVERBAG_NONTRADABLE"
+                    title="Adept's Bag of Silver"
                   />
                   <Entry
                     entryID="JOURNAL_GUILD_GUILD_CHALLENGE_LEVEL_02"
@@ -6619,8 +6619,8 @@ const Journal = ({
                   <Entry
                     entryID="JOURNAL_GUILD_GUILD_CHALLENGE_POINTS_03"
                     name="Contribute 90,000 Challenge Points to the Guild Challenge"
-                    id="T5_SILVERBAG_NONTRADABLE"
-                    title="Expert's Bag of Silver"
+                    id="T5_SKILLBOOK_NONTRADABLE"
+                    title="Expert's Tome of Insight"
                   />
                   <Entry
                     entryID="JOURNAL_GUILD_GUILD_CHALLENGE_LEVEL_03"
@@ -6637,8 +6637,8 @@ const Journal = ({
                   <Entry
                     entryID="JOURNAL_GUILD_GUILD_CHALLENGE_POINTS_04"
                     name="Contribute 160,000 Challenge Points to the Guild Challenge"
-                    id="T5_SILVERBAG_NONTRADABLE"
-                    title="Expert's Bag of Silver"
+                    id="T4_SILVERBAG_NONTRADABLE"
+                    title="Adept's Bag of Silver"
                   />
                   <Entry
                     entryID="JOURNAL_GUILD_GUILD_CHALLENGE_POINTS_05"
@@ -6649,38 +6649,38 @@ const Journal = ({
                   <Entry
                     entryID="JOURNAL_GUILD_GUILD_CHALLENGE_POINTS_06"
                     name="Contribute 400,000 Challenge Points to the Guild Challenge"
-                    id="T6_SILVERBAG_NONTRADABLE"
-                    title="Master's Bag of Silver"
+                    id="T6_SKILLBOOK_NONTRADABLE"
+                    title="Master's Tome of Insight"
                   />
                   <Entry
                     entryID="JOURNAL_GUILD_GUILD_CHALLENGE_POINTS_07"
                     name="Contribute 700,000 Challenge Points to the Guild Challenge"
-                    id="T6_SILVERBAG_NONTRADABLE"
-                    title="Master's Bag of Silver"
+                    id="T7_SKILLBOOK_NONTRADABLE"
+                    title="Grandmaster's Tome of Insight"
                   />
                   <Entry
                     entryID="JOURNAL_GUILD_GUILD_CHALLENGE_POINTS_08"
                     name="Contribute 1,200,000 Challenge Points to the Guild Challenge"
-                    id="T7_SILVERBAG_NONTRADABLE"
-                    title="Grandmaster's Bag of Silver"
+                    id="T6_SILVERBAG_NONTRADABLE"
+                    title="Master's Bag of Silver"
                   />
                   <Entry
                     entryID="JOURNAL_GUILD_GUILD_CHALLENGE_POINTS_09"
                     name="Contribute 2 million Challenge Points to the Guild Challenge"
-                    id="T7_SILVERBAG_NONTRADABLE"
-                    title="Grandmaster's Bag of Silver"
+                    id="T8_SKILLBOOK_NONTRADABLE"
+                    title="Elder's Tome of Insight"
                   />
                   <Entry
                     entryID="JOURNAL_GUILD_GUILD_CHALLENGE_POINTS_10"
                     name="Contribute 5 million Challenge Points to the Guild Challenge"
-                    id="T8_SILVERBAG_NONTRADABLE"
-                    title="Elder's Bag of Silver"
+                    id="T3_LEARNINGPOINTS_NONTRADABLE"
+                    title="Journeyman's Tome of Learning"
                   />
                   <Entry
                     entryID="JOURNAL_GUILD_GUILD_CHALLENGE_POINTS_11"
                     name="Contribute 10 million Challenge Points to the Guild Challenge"
                     id="T8_SILVERBAG_NONTRADABLE"
-                    title="Elder's Bag of Silver (x5)"
+                    title="Elder's Bag of Silver"
                   />
                   <Entry
                     entryID="JOURNAL_GUILD_GUILD_CHALLENGE_LEVEL_04"
@@ -6733,8 +6733,8 @@ const Journal = ({
                   <Entry
                     entryID="JOURNAL_GUILD_CRYSTAL_CREATURES_KILL_ANY_02"
                     name="Defeat 5 Crystal Creatures"
-                    id="T6_SILVERBAG_NONTRADABLE"
-                    title="Master's Bag of Silver"
+                    id="T5_SILVERBAG_NONTRADABLE"
+                    title="Expert's Bag of Silver"
                   />
                   <Entry
                     entryID="JOURNAL_GUILD_CRYSTAL_CREATURES_KILL_Q2"
@@ -6745,8 +6745,8 @@ const Journal = ({
                   <Entry
                     entryID="JOURNAL_GUILD_CRYSTAL_CREATURES_KILL_ANY_03"
                     name="Defeat 10 Crystal Creatures"
-                    id="T6_SILVERBAG_NONTRADABLE"
-                    title="Master's Bag of Silver"
+                    id="T5_SILVERBAG_NONTRADABLE"
+                    title="Expert's Bag of Silver"
                   />
                   <Entry
                     entryID="JOURNAL_GUILD_CRYSTAL_CREATURES_KILL_Q3"
@@ -6757,8 +6757,8 @@ const Journal = ({
                   <Entry
                     entryID="JOURNAL_GUILD_CRYSTAL_CREATURES_KILL_ANY_04"
                     name="Defeat 20 Crystal Creatures"
-                    id="T7_SILVERBAG_NONTRADABLE"
-                    title="Grandmaster's Bag of Silver"
+                    id="T6_SILVERBAG_NONTRADABLE"
+                    title="Master's Bag of Silver"
                   />
                   <Entry
                     entryID="JOURNAL_GUILD_CRYSTAL_CREATURES_KILL_Q4"
@@ -6769,8 +6769,8 @@ const Journal = ({
                   <Entry
                     entryID="JOURNAL_GUILD_CRYSTAL_CREATURES_KILL_ANY_05"
                     name="Defeat 40 Crystal Creatures"
-                    id="T7_SILVERBAG_NONTRADABLE"
-                    title="Grandmaster's Bag of Silver"
+                    id="T6_SILVERBAG_NONTRADABLE"
+                    title="Master's Bag of Silver"
                   />
                   <Entry
                     entryID="JOURNAL_GUILD_CRYSTAL_CREATURES_KILL_Q5"
@@ -6781,8 +6781,8 @@ const Journal = ({
                   <Entry
                     entryID="JOURNAL_GUILD_CRYSTAL_CREATURES_KILL_ANY_06"
                     name="Defeat 65 Crystal Creatures"
-                    id="T8_SILVERBAG_NONTRADABLE"
-                    title="Elder's Bag of Silver"
+                    id="T7_SILVERBAG_NONTRADABLE"
+                    title="Grandmaster's Bag of Silver"
                   />
                   <Entry
                     entryID="JOURNAL_GUILD_CRYSTAL_CREATURES_KILL_Q6"
@@ -6793,8 +6793,8 @@ const Journal = ({
                   <Entry
                     entryID="JOURNAL_GUILD_CRYSTAL_CREATURES_KILL_ANY_07"
                     name="Defeat 100 Crystal Creatures"
-                    id="T8_SILVERBAG_NONTRADABLE"
-                    title="Elder's Bag of Silver"
+                    id="T7_SILVERBAG_NONTRADABLE"
+                    title="Grandmaster's Bag of Silver"
                   />
                   <Entry
                     entryID="JOURNAL_GUILD_CRYSTAL_CREATURES_KILL_T8_Q6"
@@ -6806,7 +6806,7 @@ const Journal = ({
                     entryID="JOURNAL_GUILD_CRYSTAL_CREATURES_KILL_ANY_08"
                     name="Defeat 150 Crystal Creatures"
                     id="T8_SILVERBAG_NONTRADABLE"
-                    title="Elder's Bag of Silver (x5)"
+                    title="Elder's Bag of Silver"
                   />
                   <Entry
                     entryID="JOURNAL_GUILD_CRYSTAL_CREATURES_KILL_ANY_09"
@@ -6818,7 +6818,7 @@ const Journal = ({
                     entryID="JOURNAL_GUILD_CRYSTAL_CREATURES_KILL_ANY_10"
                     name="Defeat 300 Crystal Creatures"
                     id="T8_SILVERBAG_NONTRADABLE"
-                    title="Elder's Bag of Silver (x10)"
+                    title="Elder's Bag of Silver (x3)"
                   />
                 </tbody>
               </Table>
@@ -6932,13 +6932,13 @@ const Journal = ({
                     entryID="JOURNAL_GUILD_PVP_CASTLE_OUTPOST_CAPTURE_09"
                     name="Help loot 50 Castle Outpost Chests"
                     id="T8_SILVERBAG_NONTRADABLE"
-                    title="Elder's Bag of Silver (x2)"
+                    title="Elder's Bag of Silver"
                   />
                   <Entry
                     entryID="JOURNAL_GUILD_PVP_CASTLE_OUTPOST_CAPTURE_10"
                     name="Help loot 100 Castle Outpost Chests"
                     id="T8_SILVERBAG_NONTRADABLE"
-                    title="Elder's Bag of Silver (x5)"
+                    title="Elder's Bag of Silver (x3)"
                   />
                   <Entry
                     entryID="JOURNAL_GUILD_PVP_CASTLE_OUTPOST_CAPTURE_11"
@@ -6950,7 +6950,7 @@ const Journal = ({
                     entryID="JOURNAL_GUILD_PVP_CASTLE_CAPTURE_07"
                     name="Help loot 50 Castle Chests"
                     id="T8_SILVERBAG_NONTRADABLE"
-                    title="Elder's Bag of Silver (x10)"
+                    title="Elder's Bag of Silver (x5)"
                   />
                   <Entry
                     entryID="JOURNAL_GUILD_PVP_CASTLE_CAPTURE_08"
@@ -6962,7 +6962,7 @@ const Journal = ({
                     entryID="JOURNAL_GUILD_PVP_CASTLE_CAPTURE_09"
                     name="Help loot 100 Legendary Castle Chests"
                     id="T8_SILVERBAG_NONTRADABLE"
-                    title="Elder's Bag of Silver (x15)"
+                    title="Elder's Bag of Silver (x10)"
                   />
                 </tbody>
               </Table>
@@ -10163,8 +10163,8 @@ const Journal = ({
                   <Entry
                     entryID="JOURNAL_CHARACTER_PROGRESSION_REAVER_BONUS_MOBFAME_03"
                     name="Earn 250,000 Fame from killing mobs"
-                    id="T4_SILVERBAG_NONTRADABLE"
-                    title="Adept's Bag of Silver"
+                    id="T6_SKILLBOOK_NONTRADABLE"
+                    title="Master's Tome of Insight"
                   />
                   <Entry
                     entryID="JOURNAL_CHARACTER_PROGRESSION_REAVER_BONUS_T6"
@@ -10211,14 +10211,14 @@ const Journal = ({
                   <Entry
                     entryID="JOURNAL_CHARACTER_PROGRESSION_REAVER_BONUS_MOBFAME_07"
                     name="Earn 30,000,000 Fame from killing mobs"
-                    id="T7_SILVERBAG_NONTRADABLE"
-                    title="Grandmaster's Bag of Silver"
+                    id="T6_SILVERBAG_NONTRADABLE"
+                    title="Master's Bag of Silver"
                   />
                   <Entry
                     entryID="JOURNAL_CHARACTER_PROGRESSION_REAVER_BONUS_MOBFAME_08"
                     name="Earn 100,000,000 Fame from killing mobs"
-                    id="T8_SILVERBAG_NONTRADABLE"
-                    title="Elder's Bag of Silver"
+                    id="T4_LEARNINGPOINTS_NONTRADABLE"
+                    title="Adept's Tome of Learning"
                   />
                 </tbody>
               </Table>
@@ -10235,8 +10235,8 @@ const Journal = ({
                   <Entry
                     entryID="JOURNAL_CHARACTER_PROGRESSION_COMBAT_BASE_WEAPONMAINLINE_03"
                     name="Reach Level 30 in any Weapon Generalist Node"
-                    id="T4_SILVERBAG_NONTRADABLE"
-                    title="Adept's Bag of Silver"
+                    id="T3_LEARNINGPOINTS_NONTRADABLE"
+                    title="Journeyman's Tome of Learning"
                   />
                   <Entry
                     entryID="JOURNAL_CHARACTER_PROGRESSION_COMBAT_BASE_WEAPONSPREAD_01"
@@ -10259,8 +10259,8 @@ const Journal = ({
                   <Entry
                     entryID="JOURNAL_CHARACTER_PROGRESSION_COMBAT_BASE_WEAPONMAINLINE_04"
                     name="Reach Level 60 in any Weapon Generalist Node"
-                    id="T5_SILVERBAG_NONTRADABLE"
-                    title="Expert's Bag of Silver"
+                    id="T7_SKILLBOOK_NONTRADABLE"
+                    title="Grandmaster's Tome of Insight"
                   />
                   <Entry
                     entryID="JOURNAL_CHARACTER_PROGRESSION_COMBAT_BASE_WEAPONSPREAD_02"
@@ -10283,8 +10283,8 @@ const Journal = ({
                   <Entry
                     entryID="JOURNAL_CHARACTER_PROGRESSION_COMBAT_BASE_WEAPONSPREAD_03"
                     name="Reach Level 30 in 16 Armor and Weapon Generalist Nodes"
-                    id="T6_SILVERBAG_NONTRADABLE"
-                    title="Master's Bag of Silver"
+                    id="T8_SKILLBOOK_NONTRADABLE"
+                    title="Elder's Tome of Insight (x2)"
                   />
                   <Entry
                     entryID="JOURNAL_CHARACTER_PROGRESSION_COMBAT_BASE_WEAPONSPREAD_04"
@@ -10301,14 +10301,14 @@ const Journal = ({
                   <Entry
                     entryID="JOURNAL_CHARACTER_PROGRESSION_COMBAT_BASE_WEAPONSPREAD_06"
                     name="Reach Level 60 in all Armor and Weapon Generalist Nodes"
-                    id="T8_SILVERBAG_NONTRADABLE"
-                    title="Elder's Bag of Silver"
+                    id="T7_SILVERBAG_NONTRADABLE"
+                    title="Grandmaster's Bag of Silver"
                   />
                   <Entry
                     entryID="JOURNAL_CHARACTER_PROGRESSION_COMBAT_BASE_WEAPONSPREAD_07"
                     name="Reach Level 100 in all Armor and Weapon Generalist Nodes"
                     id="T8_SILVERBAG_NONTRADABLE"
-                    title="Elder's Bag of Silver (x3)"
+                    title="Elder's Bag of Silver"
                   />
                 </tbody>
               </Table>
@@ -10343,8 +10343,8 @@ const Journal = ({
                   <Entry
                     entryID="JOURNAL_CHARACTER_PROGRESSION_COMBAT_SPECIALIZATION_WEAPONSPREAD_01"
                     name="Reach Level 25 in 3 different Weapon Specialist Nodes"
-                    id="T5_SILVERBAG_NONTRADABLE"
-                    title="Expert's Bag of Silver"
+                    id="T4_SILVERBAG_NONTRADABLE"
+                    title="Adept's Bag of Silver"
                   />
                   <Entry
                     entryID="JOURNAL_CHARACTER_PROGRESSION_COMBAT_SPECIALIZATION_MAINWEAPON_05"
@@ -10361,8 +10361,8 @@ const Journal = ({
                   <Entry
                     entryID="JOURNAL_CHARACTER_PROGRESSION_COMBAT_SPECIALIZATION_MAINWEAPON_06"
                     name="Reach Level 100 in any Weapon Specialist Node"
-                    id="T6_SILVERBAG_NONTRADABLE"
-                    title="Master's Bag of Silver"
+                    id="T5_SILVERBAG_NONTRADABLE"
+                    title="Expert's Bag of Silver"
                   />
                   <Entry
                     entryID="SA_COLLECTION_ELITE_FIRST"
@@ -10403,8 +10403,8 @@ const Journal = ({
                   <Entry
                     entryID="JOURNAL_CHARACTER_PROGRESSION_COMBAT_SPECIALIZATION_WEAPONLINE_03"
                     name="Reach Level 50 in all Specialist Nodes of the same Weapon Type"
-                    id="T7_SILVERBAG_NONTRADABLE"
-                    title="Grandmaster's Bag of Silver"
+                    id="T6_SILVERBAG_NONTRADABLE"
+                    title="Master's Bag of Silver"
                   />
                   <Entry
                     entryID="JOURNAL_CHARACTER_PROGRESSION_COMBAT_SPECIALIZATION_WEAPONLINE_04"
@@ -10655,8 +10655,8 @@ const Journal = ({
                   <Entry
                     entryID="JOURNAL_CHARACTER_PROGRESSION_GATHERING_ANY_T7"
                     name="Unlock Tier 7 in any Gathering Profession"
-                    id="T6_SILVERBAG_NONTRADABLE"
-                    title="Master's Bag of Silver"
+                    id="T5_SILVERBAG_NONTRADABLE"
+                    title="Expert's Bag of Silver"
                   />
                   <Entry
                     entryID="JOURNAL_CHARACTER_PROGRESSION_GATHERING_MULTIPLE_T6"
@@ -10679,14 +10679,14 @@ const Journal = ({
                   <Entry
                     entryID="JOURNAL_CHARACTER_PROGRESSION_GATHERING_MULTIPLE_T8"
                     name="Unlock Tier 8 in 3 Gathering Professions"
-                    id="T8_SILVERBAG_NONTRADABLE"
-                    title="Elder's Bag of Silver"
+                    id="T7_SILVERBAG_NONTRADABLE"
+                    title="Grandmaster's Bag of Silver"
                   />
                   <Entry
                     entryID="JOURNAL_CHARACTER_PROGRESSION_GATHERING_ALL_T8"
                     name="Unlock Tier 8 in all Gathering Professions"
-                    id="T8_SILVERBAG_NONTRADABLE"
-                    title="Elder's Bag of Silver (x5)"
+                    id="T7_SILVERBAG_NONTRADABLE"
+                    title="Grandmaster's Bag of Silver (x5)"
                   />
                 </tbody>
               </Table>
